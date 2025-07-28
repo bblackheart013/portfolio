@@ -1,0 +1,3001 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mohd Sarfaraz Faiyaz - Portfolio</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@200;300;400;500;600;700;800;900&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #000;
+            --white: #fff;
+            --accent: #0066ff;
+            --purple: #8b5cf6;
+            --pink: #ec4899;
+            --cyan: #06b6d4;
+            --gold: #fbbf24;
+            --green: #10b981;
+        }
+
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #000;
+            color: #fff;
+            overflow-x: hidden;
+            position: relative;
+            cursor: auto;
+        }
+
+        /* Liquid Background */
+        .liquid-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            background: #000;
+            overflow: hidden;
+        }
+
+        .liquid-bg::before,
+        .liquid-bg::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 40%);
+            animation: liquid 20s infinite;
+            opacity: 0.1;
+        }
+
+        .liquid-bg::after {
+            background: radial-gradient(circle, var(--purple) 0%, transparent 40%);
+            animation-delay: -10s;
+            animation-duration: 25s;
+        }
+
+        @keyframes liquid {
+            0%, 100% {
+                transform: translate(-50%, -50%) rotate(0deg) scale(1);
+            }
+            33% {
+                transform: translate(-30%, -60%) rotate(120deg) scale(1.2);
+            }
+            66% {
+                transform: translate(-70%, -40%) rotate(240deg) scale(0.8);
+            }
+        }
+
+        /* Epic Cursor */
+        .cursor {
+            width: 20px;
+            height: 20px;
+            border: 2px solid var(--accent);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9999;
+            transition: all 0.05s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-follower {
+            width: 40px;
+            height: 40px;
+            position: fixed;
+            pointer-events: none;
+            z-index: 9998;
+            transition: all 0.15s ease;
+            border-radius: 50%;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.3;
+        }
+
+        .cursor.hover {
+            transform: scale(1.5);
+            background: var(--accent);
+            border-color: var(--white);
+        }
+
+        /* Magnetic Hover Effect */
+        [data-magnetic] {
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Glass Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 20px 40px;
+            backdrop-filter: blur(20px) saturate(180%);
+            background: rgba(255, 255, 255, 0.02);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        nav.scrolled {
+            padding: 15px 40px;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(30px);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 28px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+            padding: 5px 0;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .nav-links a:hover {
+            color: var(--white);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 0 40px;
+            overflow: hidden;
+        }
+
+        .hero-bg-gradient {
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: conic-gradient(from 0deg at 50% 50%, 
+                var(--accent) 0deg, 
+                var(--purple) 90deg, 
+                var(--pink) 180deg, 
+                var(--cyan) 270deg, 
+                var(--accent) 360deg);
+            animation: rotate 20s linear infinite;
+            opacity: 0.1;
+            filter: blur(100px);
+        }
+
+        @keyframes rotate {
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero-content {
+            max-width: 1200px;
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-profile {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 40px;
+            position: relative;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 3px solid rgba(255, 255, 255, 0.1);
+            animation: float 6s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) scale(1); }
+            50% { transform: translateY(-20px) scale(1.05); }
+        }
+
+        .hero-profile img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Education Section */
+        .education {
+            background: #0a0a0a;
+            position: relative;
+            overflow: visible;
+        }
+
+        .education::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1px;
+            height: 100%;
+            background: linear-gradient(to bottom, transparent, var(--accent), transparent);
+            opacity: 0.3;
+        }
+
+        .education-timeline {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+            padding: 60px 0;
+            overflow: visible;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, var(--accent), var(--purple));
+            transform: translateX(-50%);
+            opacity: 0.5;
+        }
+
+        .education-card {
+            position: relative;
+            margin-bottom: 80px;
+            display: flex;
+            align-items: center;
+            opacity: 0;
+            animation: fadeInEducation 0.8s ease forwards;
+        }
+
+        .education-card:nth-child(2) { animation-delay: 0.2s; }
+        .education-card:nth-child(3) { animation-delay: 0.4s; }
+
+        @keyframes fadeInEducation {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .education-card[data-side="left"] {
+            justify-content: flex-end;
+            padding-right: calc(50% + 40px);
+        }
+
+        .education-card[data-side="right"] {
+            justify-content: flex-start;
+            padding-left: calc(50% + 40px);
+        }
+
+        .education-dot {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 24px;
+            height: 24px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            border-radius: 50%;
+            border: 4px solid #0a0a0a;
+            z-index: 2;
+            box-shadow: 0 0 30px var(--accent);
+            animation: pulseDot 2s ease-in-out infinite;
+        }
+
+        @keyframes pulseDot {
+            0%, 100% { box-shadow: 0 0 30px var(--accent); }
+            50% { box-shadow: 0 0 50px var(--accent); }
+        }
+
+        .education-content {
+            max-width: 500px;
+            padding: 40px;
+            position: relative;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            overflow: visible;
+            border-radius: 24px;
+        }
+
+        .education-content:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
+        }
+
+        .education-year {
+            display: inline-block;
+            background: var(--accent);
+            color: var(--white);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-weight: 700;
+            font-size: 16px;
+            letter-spacing: 0.5px;
+            margin-bottom: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .education-image {
+            width: 100%;
+            height: 180px;
+            margin: 20px 0;
+            border-radius: 15px;
+            overflow: hidden;
+            position: relative;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.1), rgba(139, 92, 246, 0.1));
+        }
+
+        .education-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .education-image-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, rgba(0, 102, 255, 0.2), rgba(139, 92, 246, 0.2));
+            z-index: -1;
+        }
+
+        .education-image-placeholder span {
+            font-size: 80px;
+            opacity: 0.3;
+        }
+
+        .education-content:hover .education-image img {
+            transform: scale(1.1);
+        }
+
+        .education-degree {
+            font-size: 28px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.8) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            line-height: 1.2;
+        }
+
+        .education-field {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--accent);
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .education-school {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 10px;
+            opacity: 0.9;
+        }
+
+        .education-location {
+            font-size: 16px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 20px;
+        }
+
+        .education-highlights {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .highlight-tag {
+            padding: 6px 16px;
+            background: rgba(0, 102, 255, 0.15);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .highlight-tag:hover {
+            background: rgba(0, 102, 255, 0.25);
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        .education-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .hero-profile::before {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink));
+            border-radius: 50%;
+            z-index: -1;
+            animation: spin 3s linear infinite;
+        }
+
+        @keyframes spin {
+            100% { transform: rotate(360deg); }
+        }
+
+        .hero h1 {
+            font-size: clamp(60px, 10vw, 120px);
+            font-weight: 900;
+            line-height: 1.1;
+            letter-spacing: -0.03em;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        .hero h1 .word {
+            display: inline-block;
+            opacity: 0;
+            transform: translateY(50px);
+            animation: wordReveal 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+        }
+
+        .hero h1 .word:nth-child(1) { animation-delay: 0.1s; }
+        .hero h1 .word:nth-child(2) { animation-delay: 0.2s; }
+        .hero h1 .word:nth-child(3) { animation-delay: 0.3s; }
+
+        @keyframes wordReveal {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 50%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-size: 200% 200%;
+            animation: gradientShift 3s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: 24px;
+            font-weight: 300;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 60px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Glass Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(135deg, var(--accent), var(--purple), var(--pink));
+            border-radius: 24px;
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-10px) scale(1.02);
+            border-color: transparent;
+        }
+
+        .glass-card:hover::before {
+            opacity: 1;
+        }
+
+        .glass-card::after {
+            content: '';
+            position: absolute;
+            inset: 1px;
+            background: rgba(0, 0, 0, 0.9);
+            border-radius: 23px;
+            z-index: -1;
+        }
+
+        /* Stats Section */
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 80px;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.7s forwards;
+        }
+
+        .stat-card {
+            text-align: center;
+            padding: 30px;
+            position: relative;
+        }
+
+        .stat-number {
+            font-size: 72px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--white) 0%, rgba(255, 255, 255, 0.5) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+            line-height: 1;
+        }
+
+        .stat-label {
+            font-size: 18px;
+            color: rgba(255, 255, 255, 0.6);
+            font-weight: 500;
+        }
+
+        /* Apple-style sliding window animations */
+        .slide-window {
+            overflow: hidden;
+            position: relative;
+        }
+
+        .slide-content {
+            transform: translateX(100%);
+            opacity: 0;
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .slide-content.active {
+            transform: translateX(0);
+            opacity: 1;
+        }
+
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+
+        /* Sections */
+        .section {
+            padding: 120px 40px;
+            position: relative;
+            overflow: visible;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 80px;
+        }
+
+        .section-title {
+            font-size: clamp(48px, 8vw, 80px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            letter-spacing: -0.03em;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent), var(--purple));
+            border-radius: 2px;
+        }
+
+        .section-subtitle {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.6);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Experience Section */
+        .experience {
+            background: #0a0a0a;
+        }
+
+        .experience-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .experience-card {
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .experience-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.2);
+        }
+
+        .experience-header {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 25px;
+        }
+
+        .company-logo {
+            font-size: 48px;
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(0, 102, 255, 0.1);
+            border-radius: 20px;
+        }
+
+        .experience-info {
+            flex: 1;
+        }
+
+        .position-title {
+            font-size: 22px;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: var(--white);
+        }
+
+        .company-name {
+            font-size: 18px;
+            color: var(--accent);
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .company-name a {
+            color: var(--accent);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .company-name a:hover {
+            color: var(--purple);
+            text-decoration: underline;
+        }
+
+        .experience-period {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 5px;
+        }
+
+        .experience-location {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+        }
+
+        .experience-description {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 20px;
+        }
+
+        .experience-highlight {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin: 15px 0;
+            padding: 15px;
+            background: rgba(0, 102, 255, 0.05);
+            border-radius: 12px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .highlight-icon {
+            font-size: 24px;
+            color: var(--accent);
+        }
+
+        .highlight-text {
+            font-size: 15px;
+            color: rgba(255, 255, 255, 0.9);
+            font-weight: 500;
+        }
+
+        .experience-tech {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .tech-tag {
+            padding: 6px 16px;
+            background: rgba(0, 102, 255, 0.15);
+            border: 1px solid rgba(0, 102, 255, 0.3);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .tech-tag:hover {
+            background: rgba(0, 102, 255, 0.25);
+            border-color: var(--accent);
+        }
+
+        /* Featured X Posts Section */
+        .x-posts-section {
+            background: #050505;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .x-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .x-post-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 30px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .x-post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #1DA1F2, #14171A);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .x-post-card:hover {
+            transform: translateY(-5px);
+            border-color: #1DA1F2;
+            background: rgba(29, 161, 242, 0.05);
+        }
+
+        .x-post-card:hover::before {
+            opacity: 1;
+        }
+
+        .x-post-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .x-logo {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+            border-radius: 50%;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .x-username {
+            font-size: 18px;
+            font-weight: 600;
+            color: #1DA1F2;
+        }
+
+        .x-post-content {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 20px;
+        }
+
+        .x-post-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #1DA1F2;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .x-post-link:hover {
+            transform: translateX(5px);
+        }
+
+        /* Projects Section */
+        .projects {
+            background: #0a0a0a;
+            overflow: hidden;
+        }
+
+        .projects-container {
+            max-width: 1600px;
+            margin: 0 auto;
+            position: relative;
+            padding: 0 20px;
+        }
+
+        .project-slider {
+            display: flex;
+            gap: 30px;
+            padding: 40px 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            scrollbar-width: none;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .project-slider::-webkit-scrollbar {
+            display: none;
+        }
+
+        .project-card {
+            min-width: 350px;
+            max-width: 350px;
+            height: 520px;
+            position: relative;
+            border-radius: 30px;
+            overflow: hidden;
+            scroll-snap-align: center;
+            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            flex-shrink: 0;
+        }
+
+        .project-card:hover {
+            transform: scale(1.05) translateY(-10px);
+        }
+
+        .project-bg {
+            position: absolute;
+            inset: 0;
+            background-size: cover;
+            background-position: center;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-bg {
+            transform: scale(1.1);
+        }
+
+        .project-gradient {
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+
+        .project-content {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            padding: 35px;
+            transform: translateY(30px);
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover .project-content {
+            transform: translateY(0);
+        }
+
+        .project-tag {
+            display: inline-block;
+            padding: 6px 16px;
+            background: rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 15px;
+        }
+
+        .project-title {
+            font-size: 26px;
+            font-weight: 800;
+            margin-bottom: 10px;
+            line-height: 1.2;
+        }
+
+        .project-description {
+            font-size: 14px;
+            line-height: 1.5;
+            margin-bottom: 18px;
+            opacity: 0.9;
+        }
+
+        .project-stats {
+            display: flex;
+            gap: 25px;
+            margin-bottom: 20px;
+        }
+
+        .project-stat {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .project-stat-value {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--accent);
+        }
+
+        .project-stat-label {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.7);
+        }
+
+        .project-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            font-size: 14px;
+        }
+
+        .project-link:hover {
+            background: rgba(255, 255, 255, 0.2);
+            border-color: var(--accent);
+            transform: translateX(5px);
+        }
+
+        /* Project Navigation Dots */
+        .project-nav {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 30px;
+            padding-bottom: 20px;
+        }
+
+        .project-dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .project-dot.active {
+            background: var(--accent);
+            transform: scale(1.5);
+        }
+
+        /* EFL Section */
+        .efl-section {
+            background: linear-gradient(135deg, #57068c 0%, #2d0549 100%);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .efl-content {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .efl-showcase {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+            margin-bottom: 80px;
+        }
+
+        .efl-text h3 {
+            font-size: 48px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            line-height: 1.1;
+        }
+
+        .efl-text p {
+            font-size: 20px;
+            line-height: 1.8;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .efl-highlights {
+            display: grid;
+            gap: 20px;
+        }
+
+        .efl-highlight {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+        }
+
+        .efl-highlight:hover {
+            transform: translateX(10px);
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        .efl-highlight-icon {
+            font-size: 32px;
+            color: var(--gold);
+        }
+
+        .efl-highlight-text {
+            font-size: 18px;
+            font-weight: 600;
+        }
+
+        /* FIXED EFL Stats Grid */
+        .efl-stats-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+            max-width: 500px;
+        }
+
+        .efl-stat {
+            text-align: center;
+            padding: 30px 20px;
+            background: rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .efl-stat:hover {
+            transform: translateY(-5px);
+            background: rgba(0, 0, 0, 0.4);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .efl-stat-value {
+            font-size: 36px;
+            font-weight: 800;
+            margin-bottom: 8px;
+            line-height: 1;
+            color: var(--white);
+        }
+
+        .efl-stat-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.2;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Frontiers 2025 Event Section */
+        .frontiers-event {
+            background: rgba(87, 6, 140, 0.1);
+            border-radius: 30px;
+            padding: 60px;
+            margin-top: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .frontiers-event::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -30%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(251, 191, 36, 0.2) 0%, transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); opacity: 0.5; }
+            50% { transform: scale(1.2); opacity: 0.3; }
+        }
+
+        .frontiers-header {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .frontiers-header h3 {
+            font-size: 56px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--white) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .frontiers-header p {
+            font-size: 24px;
+            opacity: 0.9;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .frontiers-people {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .person-card {
+            padding: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(20px);
+            border-radius: 20px;
+            text-align: center;
+            transition: all 0.3s ease;
+        }
+
+        .person-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .person-name {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .person-title {
+            font-size: 16px;
+            color: var(--gold);
+            margin-bottom: 15px;
+        }
+
+        .person-desc {
+            font-size: 14px;
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        .companies-section {
+            margin-top: 60px;
+        }
+
+        .companies-category {
+            margin-bottom: 50px;
+        }
+
+        .category-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 30px;
+            color: var(--gold);
+        }
+
+        .companies-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .company-item {
+            padding: 25px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .company-item:hover {
+            transform: translateY(-3px);
+            background: rgba(255, 255, 255, 0.08);
+            border-color: var(--gold);
+        }
+
+        .company-name {
+            font-size: 20px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .company-location {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 10px;
+        }
+
+        .company-valuation {
+            font-size: 16px;
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        .frontiers-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 40px;
+            padding: 18px 40px;
+            background: linear-gradient(135deg, var(--gold), var(--accent));
+            color: var(--white);
+            text-decoration: none;
+            font-size: 18px;
+            font-weight: 700;
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .frontiers-link:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 20px 40px rgba(251, 191, 36, 0.3);
+        }
+
+        /* Research Section */
+        .research {
+            background: #050505;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .research-card {
+            padding: 50px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-number {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            font-size: 80px;
+            font-weight: 900;
+            opacity: 0.1;
+            color: var(--accent);
+        }
+
+        .research-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            line-height: 1.3;
+        }
+
+        .research-venue {
+            font-size: 16px;
+            color: var(--accent);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .research-metrics {
+            display: flex;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .metric-tag {
+            padding: 8px 16px;
+            background: rgba(0, 102, 255, 0.2);
+            border: 1px solid var(--accent);
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .research-desc {
+            font-size: 16px;
+            line-height: 1.6;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 25px;
+        }
+
+        .research-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--white);
+            text-decoration: none;
+            font-weight: 600;
+            padding: 12px 24px;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            border-radius: 30px;
+            transition: all 0.3s ease;
+        }
+
+        .research-link:hover {
+            transform: translateX(5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        /* Contact Section */
+        .contact {
+            background: linear-gradient(180deg, #0a0a0a 0%, #000 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .contact::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px;
+            height: 800px;
+            background: radial-gradient(circle, var(--accent) 0%, transparent 70%);
+            opacity: 0.03;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        .contact-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .contact h2 {
+            font-size: clamp(48px, 8vw, 72px);
+            font-weight: 900;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--white) 0%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .contact-subtitle {
+            font-size: 24px;
+            color: rgba(255, 255, 255, 0.7);
+            margin-bottom: 80px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 80px;
+            max-width: 900px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .contact-method {
+            padding: 50px 30px;
+            text-decoration: none;
+            color: var(--white);
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+        }
+
+        .contact-method:hover {
+            transform: translateY(-10px) scale(1.05);
+            background: rgba(255, 255, 255, 0.05);
+            border-color: var(--accent);
+            box-shadow: 0 20px 60px rgba(0, 102, 255, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 48px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .contact-label {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .contact-value {
+            font-size: 18px;
+            font-weight: 600;
+            word-break: break-word;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-link {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            text-decoration: none;
+            color: var(--white);
+            font-weight: 700;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .social-link::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, var(--accent), var(--purple));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-5px) scale(1.1);
+            border-color: transparent;
+        }
+
+        .social-link:hover::before {
+            opacity: 1;
+        }
+
+        .social-link span {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Reveal Animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            position: relative;
+            z-index: 1002;
+        }
+
+        .mobile-menu-btn span {
+            display: block;
+            width: 30px;
+            height: 3px;
+            background: var(--white);
+            margin: 6px auto;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+
+        .mobile-menu-btn.active span:nth-child(1) {
+            transform: rotate(45deg) translate(8px, 8px);
+        }
+
+        .mobile-menu-btn.active span:nth-child(2) {
+            opacity: 0;
+        }
+
+        .mobile-menu-btn.active span:nth-child(3) {
+            transform: rotate(-45deg) translate(8px, -8px);
+        }
+
+        .mobile-nav {
+            display: none;
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 100%;
+            height: 100vh;
+            background: rgba(0, 0, 0, 0.98);
+            backdrop-filter: blur(20px);
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .mobile-nav.active {
+            transform: translateX(0);
+        }
+
+        .mobile-nav-links {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .mobile-nav-links a {
+            color: var(--white);
+            text-decoration: none;
+            font-size: 32px;
+            font-weight: 700;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+        }
+
+        .mobile-nav.active .mobile-nav-links a {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .mobile-nav-links a:nth-child(1) { transition-delay: 0.1s; }
+        .mobile-nav-links a:nth-child(2) { transition-delay: 0.15s; }
+        .mobile-nav-links a:nth-child(3) { transition-delay: 0.2s; }
+        .mobile-nav-links a:nth-child(4) { transition-delay: 0.25s; }
+        .mobile-nav-links a:nth-child(5) { transition-delay: 0.3s; }
+        .mobile-nav-links a:nth-child(6) { transition-delay: 0.35s; }
+        .mobile-nav-links a:nth-child(7) { transition-delay: 0.4s; }
+        .mobile-nav-links a:nth-child(8) { transition-delay: 0.45s; }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .mobile-nav {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: clamp(40px, 12vw, 60px);
+            }
+
+            .experience-grid,
+            .x-posts-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-card {
+                min-width: 300px;
+                height: 450px;
+            }
+
+            .efl-showcase {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .efl-stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 15px;
+            }
+
+            .contact-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            /* Education timeline mobile */
+            .timeline-line {
+                left: 30px;
+            }
+
+            .education-card {
+                padding-left: 60px !important;
+                padding-right: 20px !important;
+                margin-bottom: 60px;
+            }
+
+            .education-card[data-side="left"],
+            .education-card[data-side="right"] {
+                justify-content: flex-start;
+            }
+
+            .education-dot {
+                left: 30px;
+            }
+
+            .education-content {
+                max-width: 100%;
+                padding: 30px 20px;
+            }
+
+            .education-year {
+                font-size: 14px;
+                padding: 6px 16px;
+                margin-bottom: 15px;
+            }
+
+            .education-degree {
+                font-size: 22px;
+            }
+
+            .education-field {
+                font-size: 18px;
+            }
+
+            .education-image {
+                height: 150px;
+            }
+
+            .section {
+                padding: 80px 20px;
+            }
+        }
+
+        /* Loader */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 10000;
+            transition: opacity 1s ease;
+        }
+
+        .loader.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .loader-text {
+            font-size: 100px;
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--purple) 50%, var(--pink) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: glitch 2s infinite;
+        }
+
+        @keyframes glitch {
+            0%, 100% {
+                text-shadow: 
+                    2px 0 var(--accent),
+                    -2px 0 var(--purple);
+            }
+            50% {
+                text-shadow: 
+                    -2px 0 var(--accent),
+                    2px 0 var(--purple);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loader -->
+    <div class="loader" id="loader">
+        <div class="loader-text">MSF</div>
+    </div>
+
+    <!-- Liquid Background -->
+    <div class="liquid-bg"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor"></div>
+    <div class="cursor-follower"></div>
+
+    <!-- Navigation -->
+    <nav id="nav">
+        <div class="nav-container">
+            <div class="logo" data-magnetic>MSF</div>
+            <ul class="nav-links">
+                <li><a href="#home" data-magnetic>Home</a></li>
+                <li><a href="#experience" data-magnetic>Experience</a></li>
+                <li><a href="#x-posts" data-magnetic>Featured</a></li>
+                <li><a href="#projects" data-magnetic>Projects</a></li>
+                <li><a href="#efl" data-magnetic>EFL</a></li>
+                <li><a href="#education" data-magnetic>Education</a></li>
+                <li><a href="#research" data-magnetic>Research</a></li>
+                <li><a href="#contact" data-magnetic>Contact</a></li>
+            </ul>
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <ul class="mobile-nav-links">
+            <li><a href="#experience" data-mobile-link>Experience</a></li>
+            <li><a href="#x-posts" data-mobile-link>Featured</a></li>
+            <li><a href="#projects" data-mobile-link>Projects</a></li>
+            <li><a href="#efl" data-mobile-link>EFL</a></li>
+            <li><a href="#education" data-mobile-link>Education</a></li>
+            <li><a href="#research" data-mobile-link>Research</a></li>
+            <li><a href="#contact" data-mobile-link>Contact</a></li>
+        </ul>
+    </div>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-bg-gradient"></div>
+        <div class="hero-content">
+            <div class="hero-profile">
+                <img src="images/profile.jpg" alt="Mohd Sarfaraz Faiyaz" onerror="this.style.display='none'">
+            </div>
+            
+            <h1>
+                <span class="word">Mohd</span>
+                <span class="word gradient-text">Sarfaraz</span>
+                <span class="word">Faiyaz</span>
+            </h1>
+            
+            <p class="hero-subtitle">
+                MS Computer Engineering @ NYU • Software Engineer • Researcher
+            </p>
+            
+            <div class="stats">
+                <div class="stat-card glass-card" data-magnetic>
+                    <div class="stat-number" data-value="10">0</div>
+                    <div class="stat-label">Published Papers</div>
+                </div>
+                <div class="stat-card glass-card" data-magnetic>
+                    <div class="stat-number" data-value="22">0</div>
+                    <div class="stat-label">Citations</div>
+                </div>
+                <div class="stat-card glass-card" data-magnetic>
+                    <div class="stat-number" data-value="50">0</div>
+                    <div class="stat-label">Enterprise Clients</div>
+                </div>
+                <div class="stat-card glass-card" data-magnetic>
+                    <div class="stat-number" data-value="2">0</div>
+                    <div class="stat-label">Years as Founder</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="section experience">
+        <div class="section-header reveal">
+            <h2 class="section-title">Professional Experience</h2>
+            <p class="section-subtitle">Working on challenging problems at scale</p>
+        </div>
+
+        <div class="experience-grid">            
+
+            <!-- Tiny Archives -->
+            <div class="experience-card glass-card reveal" data-magnetic>
+                <div class="experience-header">
+                    <div class="company-logo">📚</div>
+                    <div class="experience-info">
+                        <h3 class="position-title">Software Development Engineer Intern</h3>
+                        <div class="company-name">
+                            <a href="https://www.tinyarchives.org/" target="_blank">Tiny Archives</a>
+                        </div>
+                        <div class="experience-period">June 2025 - Present</div>
+                        <div class="experience-location">📍 Oxnard, California</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    Building FACTool - an innovative Finding Aid Creation Tool that empowers archivists, artists, and families to preserve their collections with standards-based archival description.
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">🚀</span>
+                    <span class="highlight-text">Scaled platform to support 17 languages and DACS/ISAD(G) standards</span>
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">⚡</span>
+                    <span class="highlight-text">Improved API performance by 40% through optimization</span>
+                </div>
+                <div class="experience-tech">
+                    <span class="tech-tag">Next.js</span>
+                    <span class="tech-tag">Django</span>
+                    <span class="tech-tag">PostgreSQL</span>
+                    <span class="tech-tag">AWS</span>
+                </div>
+            </div>
+            <!-- NYU Stern EFL -->
+            <div class="experience-card glass-card reveal" data-magnetic>
+                <div class="experience-header">
+                    <div class="company-logo">💼</div>
+                    <div class="experience-info">
+                        <h3 class="position-title">Digital Technology Analyst</h3>
+                        <div class="company-name">
+                            <a href="https://endlessfrontierlabs.com/" target="_blank">NYU Stern - Endless Frontier Labs</a>
+                        </div>
+                        <div class="experience-period">May 2025 - Present</div>
+                        <div class="experience-location">📍 New York, USA</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    Evaluating technology stacks and providing strategic guidance to AI/ML startups in NYU's elite accelerator program.
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">📊</span>
+                    <span class="highlight-text">Screened 120+ startups using custom 15-point evaluation rubric</span>
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">💰</span>
+                    <span class="highlight-text">Portfolio companies raised $18M+ in follow-on funding</span>
+                </div>
+                <div class="experience-tech">
+                    <span class="tech-tag">Due Diligence</span>
+                    <span class="tech-tag">AI/ML</span>
+                    <span class="tech-tag">Strategy</span>
+                    <span class="tech-tag">VC</span>
+                </div>
+            </div>
+            <!-- NYU Blockchain Lab -->
+            <div class="experience-card glass-card reveal" data-magnetic>
+                <div class="experience-header">
+                    <div class="company-logo">🔗</div>
+                    <div class="experience-info">
+                        <h3 class="position-title">Blockchain Researcher</h3>
+                        <div class="company-name">
+                            <a href="https://blockchain.stern.nyu.edu/" target="_blank">NYU Blockchain Lab</a>
+                        </div>
+                        <div class="experience-period">Sep 2024 - Present</div>
+                        <div class="experience-location">📍 New York, USA</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    Conducting research on Zero-Knowledge Proofs (ZKP) for decentralized governance systems and DeFi protocols. Building privacy-preserving voting mechanisms and identity solutions.
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">🔐</span>
+                    <span class="highlight-text">Developing ZKP-based governance for DeFi protocols</span>
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">🏛️</span>
+                    <span class="highlight-text">Implementing ERC-725 identity standards for digital democracy</span>
+                </div>
+                <div class="experience-tech">
+                    <span class="tech-tag">ZKP</span>
+                    <span class="tech-tag">Solidity</span>
+                    <span class="tech-tag">DeFi</span>
+                    <span class="tech-tag">Governance</span>
+                </div>
+            </div>
+            <!-- NYU Secure Systems Lab -->
+            <div class="experience-card glass-card reveal" data-magnetic>
+                <div class="experience-header">
+                    <div class="company-logo">🔬</div>
+                    <div class="experience-info">
+                        <h3 class="position-title">Security Research Assistant</h3>
+                        <div class="company-name">NYU Secure Systems Lab</div>
+                        <div class="experience-period">Jan 2025 - May 2025</div>
+                        <div class="experience-location">📍 New York, USA</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    Working on Lind3i - a WebAssembly sandbox for secure AI system deployment. Collaborating with Intel on kernel isolation research.
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">🛡️</span>
+                    <span class="highlight-text">Developing secure sandboxing solutions for AI workloads</span>
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">🤝</span>
+                    <span class="highlight-text">Collaborating with Intel on kernel-level security research</span>
+                </div>
+                <div class="experience-tech">
+                    <span class="tech-tag">WebAssembly</span>
+                    <span class="tech-tag">Security</span>
+                    <span class="tech-tag">Systems</span>
+                    <span class="tech-tag">AI</span>
+                </div>
+            </div>
+
+            <div class="experience-card glass-card reveal" data-magnetic>
+                <div class="experience-header">
+                    <div class="company-logo">🚀</div>
+                    <div class="experience-info">
+                        <h3 class="position-title">Founder & CTO</h3>
+                        <div class="company-name">Cypher AI Technologies</div>
+                        <div class="experience-period">Jun 2022 - Aug 2024</div>
+                        <div class="experience-location">📍 Lucknow, India</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    Founded and built an enterprise HRMS platform serving 50+ SMB clients. Led technical architecture and product development.
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">📈</span>
+                    <span class="highlight-text">Achieved 99.9% uptime and 32% productivity improvements</span>
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">🏆</span>
+                    <span class="highlight-text">Built from 0 to 50+ enterprise clients in 2 years</span>
+                </div>
+                <div class="experience-tech">
+                    <span class="tech-tag">Leadership</span>
+                    <span class="tech-tag">Full-Stack</span>
+                    <span class="tech-tag">B2B SaaS</span>
+                    <span class="tech-tag">Scale</span>
+                </div>
+            </div>
+
+            <div class="experience-card glass-card reveal" data-magnetic>
+                <div class="experience-header">
+                    <div class="company-logo">🚇</div>
+                    <div class="experience-info">
+                        <h3 class="position-title">Software Developer Intern</h3>
+                        <div class="company-name">Lucknow Metro Rail Corporation</div>
+                        <div class="experience-period">May 2023 - Jun 2023</div>
+                        <div class="experience-location">📍 Lucknow, India</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    Developed Leave Management System for UPMRC. Led a team of 5 engineers to deliver the project on time.
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">👥</span>
+                    <span class="highlight-text">Led 5-member engineering team to successful delivery</span>
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">🎯</span>
+                    <span class="highlight-text">Delivered enterprise solution within tight deadline</span>
+                </div>
+                <div class="experience-tech">
+                    <span class="tech-tag">PHP</span>
+                    <span class="tech-tag">MySQL</span>
+                    <span class="tech-tag">JavaScript</span>
+                    <span class="tech-tag">Team Lead</span>
+                </div>
+            </div>
+
+            <div class="experience-card glass-card reveal" data-magnetic>
+                <div class="experience-header">
+                    <div class="company-logo">🤖</div>
+                    <div class="experience-info">
+                        <h3 class="position-title">Machine Learning Engineer</h3>
+                        <div class="company-name">Feynn Labs</div>
+                        <div class="experience-period">Mar 2023 - May 2023</div>
+                        <div class="experience-location">📍 Assam, India</div>
+                    </div>
+                </div>
+                <div class="experience-description">
+                    Led a team to develop a Travel Recommendation System using collaborative filtering techniques.
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">🔍</span>
+                    <span class="highlight-text">Built recommendation engine with 85% accuracy</span>
+                </div>
+                <div class="experience-highlight">
+                    <span class="highlight-icon">📊</span>
+                    <span class="highlight-text">Processed 100K+ travel data points for insights</span>
+                </div>
+                <div class="experience-tech">
+                    <span class="tech-tag">ML</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Team Lead</span>
+                    <span class="tech-tag">Analytics</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured X Posts Section -->
+    <section id="x-posts" class="section x-posts-section">
+        <div class="section-header reveal">
+            <h2 class="section-title">Featured Posts</h2>
+            <p class="section-subtitle">Thoughts and insights from my journey</p>
+        </div>
+
+        <div class="x-posts-grid">
+            <div class="x-post-card reveal" data-magnetic>
+                <div class="x-post-header">
+                    <div class="x-logo">𝕏</div>
+                    <div class="x-username">@mohdsarfaraz013</div>
+                </div>
+                <div class="x-post-content">
+                    "Just wrapped up an incredible session at NYU Blockchain Lab working on Zero-Knowledge Proofs for decentralized governance. The future of privacy-preserving democracy is here! 🔐🚀 #Blockchain #ZKP #NYU"
+                </div>
+                <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank">
+                    View on X →
+                </a>
+            </div>
+
+            <div class="x-post-card reveal" data-magnetic>
+                <div class="x-post-header">
+                    <div class="x-logo">𝕏</div>
+                    <div class="x-username">@mohdsarfaraz013</div>
+                </div>
+                <div class="x-post-content">
+                    "Building at @TinyArchives - democratizing archival preservation for everyone. Our platform empowers archivists, artists, and families to create professional finding aids. Tech for good! 📚✨ #ArchivalScience #TechForGood"
+                </div>
+                <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank">
+                    View on X →
+                </a>
+            </div>
+
+            <div class="x-post-card reveal" data-magnetic>
+                <div class="x-post-header">
+                    <div class="x-logo">𝕏</div>
+                    <div class="x-username">@mohdsarfaraz013</div>
+                </div>
+                <div class="x-post-content">
+                    "Excited to be part of the Digital Tech track at @EndlessFrontierLabs! Evaluating cutting-edge AI/ML startups and helping them scale. The innovation happening at NYU Stern is mind-blowing! 💡🚀 #StartupLife #VentureCapital #NYUStern"
+                </div>
+                <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank">
+                    View on X →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="section-header reveal">
+            <h2 class="section-title">Featured Projects</h2>
+            <p class="section-subtitle">Building solutions that matter</p>
+        </div>
+
+        <div class="projects-container">
+            <div class="project-slider">
+                <!-- Cypher AI Technologies -->
+                <div class="project-card reveal" data-magnetic>
+                    <div class="project-bg" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="project-gradient"></div>
+                    <div class="project-content">
+                        <span class="project-tag">Startup</span>
+                        <h3 class="project-title">Cypher AI Technologies</h3>
+                        <p class="project-description">
+                            Co-founded and served as CTO (2022-2024). Built complete HRMS platform serving 50+ SMB clients with 99.9% uptime and 32% productivity improvements.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">50+</div>
+                                <div class="project-stat-label">Active Clients</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">2 Years</div>
+                                <div class="project-stat-label">As Founder</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- DeFi ZKP Governance -->
+                <div class="project-card reveal" data-magnetic>
+                    <div class="project-bg" style="background: linear-gradient(135deg, #0066ff 0%, #8b5cf6 100%);"></div>
+                    <div class="project-gradient"></div>
+                    <div class="project-content">
+                        <span class="project-tag">NYU Blockchain Lab</span>
+                        <h3 class="project-title">DeFi ZKP Governance System</h3>
+                        <p class="project-description">
+                            Privacy-focused decentralized governance platform integrating Zero-Knowledge Proofs and ERC-725 identity standards for digital democracy in DeFi.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">ZKP</div>
+                                <div class="project-stat-label">Privacy Tech</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">ERC-725</div>
+                                <div class="project-stat-label">Identity</div>
+                            </div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/defi-zkp-governance-nyu" class="project-link">
+                            View on GitHub →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- AI Accelerated Hardware -->
+                <div class="project-card reveal" data-magnetic>
+                    <div class="project-bg" style="background: linear-gradient(135deg, #ec4899 0%, #8b5cf6 100%);"></div>
+                    <div class="project-gradient"></div>
+                    <div class="project-content">
+                        <span class="project-tag">Hardware AI</span>
+                        <h3 class="project-title">AI Accelerated Hardware</h3>
+                        <p class="project-description">
+                            FPGA-based vector multiplication accelerator achieving up to 4000× speedup over software implementation through parallel processing.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">4000×</div>
+                                <div class="project-stat-label">Speedup</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">FPGA</div>
+                                <div class="project-stat-label">Technology</div>
+                            </div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/AI-ACCELERATED_HARDWARE" class="project-link">
+                            View on GitHub →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Adversarial Attacks -->
+                <div class="project-card reveal" data-magnetic>
+                    <div class="project-bg" style="background: linear-gradient(135deg, #f59e0b 0%, #dc2626 100%);"></div>
+                    <div class="project-gradient"></div>
+                    <div class="project-content">
+                        <span class="project-tag">Deep Learning</span>
+                        <h3 class="project-title">Adversarial Attacks on ImageNet</h3>
+                        <p class="project-description">
+                            Implemented FGSM, PGD, and patch-based attacks on ResNet-34, demonstrating vulnerabilities in production-grade image classifiers with 70%+ fooling rates.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">70%+</div>
+                                <div class="project-stat-label">Fooling Rate</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">NYU DL</div>
+                                <div class="project-stat-label">Course</div>
+                            </div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/deep-learning-mini-project-3" class="project-link">
+                            View on GitHub →
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Parkinson's Disease Movement Monitor -->
+                <div class="project-card reveal" data-magnetic>
+                    <div class="project-bg" style="background: linear-gradient(135deg, #10b981 0%, #06b6d4 100%);"></div>
+                    <div class="project-gradient"></div>
+                    <div class="project-content">
+                        <span class="project-tag">Embedded Systems</span>
+                        <h3 class="project-title">Parkinson's Disease Movement Monitor</h3>
+                        <p class="project-description">
+                            Real-time wearable device using STM32 microcontroller and LSM6DSL sensor to detect tremors (3-5Hz) and dyskinesia (5-7Hz) with FFT analysis for medication optimization.
+                        </p>
+                        <div class="project-stats">
+                            <div class="project-stat">
+                                <div class="project-stat-value">&gt;95%</div>
+                                <div class="project-stat-label">Detection Rate</div>
+                            </div>
+                            <div class="project-stat">
+                                <div class="project-stat-value">52Hz</div>
+                                <div class="project-stat-label">Real-time</div>
+                            </div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/parkinson-device" class="project-link">
+                            View on GitHub →
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Project Navigation Dots -->
+            <div class="project-nav">
+                <div class="project-dot active" data-project="0"></div>
+                <div class="project-dot" data-project="1"></div>
+                <div class="project-dot" data-project="2"></div>
+                <div class="project-dot" data-project="3"></div>
+                <div class="project-dot" data-project="4"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- EFL Section - CORRECTED -->
+    <section id="efl" class="section efl-section">
+        <div class="section-header reveal">
+            <h2 class="section-title" style="color: #fff;">NYU Stern - Endless Frontier Labs</h2>
+            <p class="section-subtitle" style="color: rgba(255, 255, 255, 0.8);">Accelerating the future of AI, DeepTech & Digital Innovation</p>
+        </div>
+
+        <div class="efl-content">
+            <div class="efl-showcase reveal">
+                <div class="efl-text">
+                    <h3>Shaping Tomorrow's Technology Leaders</h3>
+                    <p>
+                        As a Digital Technology Analyst at Endless Frontier Labs, I work with the most promising AI/ML startups, 
+                        providing technical guidance and strategic insights to help them scale from idea to impact.
+                    </p>
+                    <div class="efl-highlights">
+                        <div class="efl-highlight">
+                            <span class="efl-highlight-icon">🎯</span>
+                            <span class="efl-highlight-text">Screened 120+ AI/ML startups for the Digital Tech track</span>
+                        </div>
+                        <div class="efl-highlight">
+                            <span class="efl-highlight-icon">📈</span>
+                            <span class="efl-highlight-text">Portfolio companies raised $18M+ in follow-on funding</span>
+                        </div>
+                        <div class="efl-highlight">
+                            <span class="efl-highlight-icon">🤝</span>
+                            <span class="efl-highlight-text">30+ mentor-founder strategy sessions facilitated</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="efl-stats-grid">
+                    <div class="efl-stat glass-card" data-magnetic>
+                        <div class="efl-stat-value">&lt; 5%</div>
+                        <div class="efl-stat-label">Acceptance Rate</div>
+                    </div>
+                    <div class="efl-stat glass-card" data-magnetic>
+                        <div class="efl-stat-value">$2.3B+</div>
+                        <div class="efl-stat-label">Alumni Raised</div>
+                    </div>
+                    <div class="efl-stat glass-card" data-magnetic>
+                        <div class="efl-stat-value">15</div>
+                        <div class="efl-stat-label">Unicorns</div>
+                    </div>
+                    <div class="efl-stat glass-card" data-magnetic>
+                        <div class="efl-stat-value">120+</div>
+                        <div class="efl-stat-label">Companies/Year</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Frontiers 2025 Event -->
+            <div class="frontiers-event reveal">
+                <div class="frontiers-header">
+                    <h3>#Frontiers2025</h3>
+                    <p>Being at NYU Stern with the sharpest minds in AI, DeepTech, and DigitalTech felt like standing face to face with what the future looks like.</p>
+                </div>
+
+                <div class="frontiers-people">
+                    <div class="person-card">
+                        <h4 class="person-name">Professor Deepak Hegde</h4>
+                        <p class="person-title">Founder, Endless Frontier Labs</p>
+                        <p class="person-desc">A leader who's spent his career turning breakthrough ideas into real-world ventures.</p>
+                    </div>
+                    <div class="person-card">
+                        <h4 class="person-name">Liz Elting</h4>
+                        <p class="person-title">Billion-dollar Founder & Bestselling Author</p>
+                        <p class="person-desc">She didn't just give a talk. She owned the room. Raw, powerful, unforgettable.</p>
+                    </div>
+                    <div class="person-card">
+                        <h4 class="person-name">Mark Flynn</h4>
+                        <p class="person-title">Associate Director at EFL</p>
+                        <p class="person-desc">My supervisor who made sure every detail of the event hit the way it did.</p>
+                    </div>
+                </div>
+
+                <div class="companies-section">
+                    <div class="companies-category">
+                        <h4 class="category-title">AI for Security and Defense Applications</h4>
+                        <div class="companies-grid">
+                            <div class="company-item">
+                                <div class="company-name">SpruceID</div>
+                                <div class="company-location">New York, NY</div>
+                                <div class="company-valuation">$30M+ Raised</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">Spectronn</div>
+                                <div class="company-location">Holmdel, NJ</div>
+                                <div class="company-valuation">Series A</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">NightVision Security</div>
+                                <div class="company-location">Bradenton, FL</div>
+                                <div class="company-valuation">$5M Seed</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">Youverify</div>
+                                <div class="company-location">Oakville, Canada</div>
+                                <div class="company-valuation">$2.5M+ Raised</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">Safe YOU</div>
+                                <div class="company-location">Yerevan, Armenia</div>
+                                <div class="company-valuation">Pre-Seed</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="companies-category">
+                        <h4 class="category-title">AI for Enterprise Applications</h4>
+                        <div class="companies-grid">
+                            <div class="company-item">
+                                <div class="company-name">ByteGenie</div>
+                                <div class="company-location">Singapore</div>
+                                <div class="company-valuation">$8M Series A</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">DataHive</div>
+                                <div class="company-location">San Francisco, CA</div>
+                                <div class="company-valuation">$15M+ Raised</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">Lore Machine</div>
+                                <div class="company-location">Glendale, CA</div>
+                                <div class="company-valuation">Seed Stage</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">Telness Tech</div>
+                                <div class="company-location">Stockholm, Sweden</div>
+                                <div class="company-valuation">€10M Series A</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">syd.life</div>
+                                <div class="company-location">London, UK</div>
+                                <div class="company-valuation">£3M Seed</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="companies-category">
+                        <h4 class="category-title">AI Tools and Infrastructure</h4>
+                        <div class="companies-grid">
+                            <div class="company-item">
+                                <div class="company-name">CLIKA Inc.</div>
+                                <div class="company-location">San Jose, CA</div>
+                                <div class="company-valuation">$20M+ Raised</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">Smabbler Galaxia</div>
+                                <div class="company-location">Rzeplin, Poland</div>
+                                <div class="company-valuation">Seed Stage</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">Simulacra AI SDS</div>
+                                <div class="company-location">New York, NY</div>
+                                <div class="company-valuation">$5M Seed</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">PLATMA</div>
+                                <div class="company-location">Wilmington, DE</div>
+                                <div class="company-valuation">Pre-Seed</div>
+                            </div>
+                            <div class="company-item">
+                                <div class="company-name">CTGT (YC F24)</div>
+                                <div class="company-location">San Francisco, CA</div>
+                                <div class="company-valuation">Y Combinator</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="https://www.linkedin.com/posts/mohdsarfarazfaiyaz_frontiers2025-ai-deeptech-activity-7326495964255387649-56Gu" class="frontiers-link" target="_blank">
+                    View Full LinkedIn Post →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section education">
+        <div class="section-header reveal">
+            <h2 class="section-title">Education</h2>
+            <p class="section-subtitle">Learning from the best institutions</p>
+        </div>
+        
+        <div class="education-timeline">
+            <div class="timeline-line"></div>
+            
+            <div class="education-card reveal" data-side="left">
+                <div class="education-dot"></div>
+                <div class="education-content glass-card">
+                    <span class="education-year">2024 - 2026</span>
+                    <h3 class="education-degree">Master of Science</h3>
+                    <h4 class="education-field">Computer Engineering</h4>
+                    <div class="education-school">New York University</div>
+                    <div class="education-location">📍 New York, USA</div>
+                    <div class="education-image">
+                        <img src="images/nyu-campus.jpg" alt="NYU Campus" onerror="this.style.display='none'">
+                        <div class="education-image-placeholder">
+                            <span>🏛️</span>
+                        </div>
+                    </div>
+                    <div class="education-highlights">
+                        <div class="highlight-tag">NYU Blockchain Lab</div>
+                        <div class="highlight-tag">SSL Research</div>
+                        <div class="highlight-tag">Stern EFL Analyst</div>
+                    </div>
+                    <p class="education-description">
+                        Currently pursuing MS in Computer Engineering with focus on security systems and blockchain. 
+                        Active member of NYU Blockchain Lab, conducting research at NYU Secure Systems Lab, and 
+                        serving as Technology Analyst at Stern EFL.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="education-card reveal" data-side="right">
+                <div class="education-dot"></div>
+                <div class="education-content glass-card">
+                    <span class="education-year">2020 - 2024</span>
+                    <h3 class="education-degree">Bachelor of Technology</h3>
+                    <h4 class="education-field">Computer Science & Engineering</h4>
+                    <div class="education-school">Amity University</div>
+                    <div class="education-location">📍 Lucknow, India</div>
+                    <div class="education-image">
+                        <img src="images/amity-campus.jpg" alt="Amity Campus" onerror="this.style.display='none'">
+                        <div class="education-image-placeholder">
+                            <span>🎓</span>
+                        </div>
+                    </div>
+                    <div class="education-highlights">
+                        <div class="highlight-tag">Gold Medalist</div>
+                        <div class="highlight-tag">10 Publications</div>
+                        <div class="highlight-tag">Best Innovation Award</div>
+                    </div>
+                    <p class="education-description">
+                        Graduated with distinction. Published multiple research papers and founded a startup 
+                        during undergraduate studies. Received awards for academic excellence.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Research Section -->
+    <section id="research" class="section research">
+        <div class="section-header reveal">
+            <h2 class="section-title">Research Publications</h2>
+            <p class="section-subtitle">10 papers published in top-tier conferences and journals</p>
+        </div>
+
+        <div class="research-grid">
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">01</div>
+                <h3 class="research-title">Optimizing Electric Vehicle Charging Station Deployment: A Predictive Modeling and Optimization Approach</h3>
+                <div class="research-venue">IEEE Computer Society of India 2024</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Machine Learning</span>
+                    <span class="metric-tag">Optimization</span>
+                </div>
+                <p class="research-desc">
+                    Developed predictive models achieving 93% accuracy for EV charging demand forecasting. 
+                    Used Gurobi optimization to minimize deployment costs to INR 3,978,066.
+                </p>
+                <a href="https://ieeexplore.ieee.org/abstract/document/10725354" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">02</div>
+                <h3 class="research-title">Securing Supply Chain - Blockchain: Leveraging ICC for Product Verification and Validation</h3>
+                <div class="research-venue">IEEE ICDT 2024</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Blockchain</span>
+                    <span class="metric-tag">Supply Chain</span>
+                </div>
+                <p class="research-desc">
+                    Explored blockchain and QR codes for combating $500B annual counterfeit losses. 
+                    Demonstrated enhanced transparency and traceability in supply chains.
+                </p>
+                <a href="https://ieeexplore.ieee.org/abstract/document/10489614" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">03</div>
+                <h3 class="research-title">Resilient Domain Authentication Framework for Enhancing Digital Identity Security</h3>
+                <div class="research-venue">Springer 2025</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Security</span>
+                    <span class="metric-tag">Blockchain</span>
+                </div>
+                <p class="research-desc">
+                    Introduced MetaMask-based authentication leveraging Ethereum blockchain. 
+                    Demonstrated reduced susceptibility to phishing and domain attacks.
+                </p>
+                <a href="https://link.springer.com/chapter/10.1007/978-981-97-7880-5_3" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">04</div>
+                <h3 class="research-title">Evolutionary Analysis: Classical Bits to Quantum Qubits</h3>
+                <div class="research-venue">Springer Quantum Computing 2023</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Quantum Computing</span>
+                    <span class="metric-tag">Theory</span>
+                </div>
+                <p class="research-desc">
+                    Comprehensive analysis of transition from classical to quantum computing, exploring 
+                    superposition, entanglement, and quantum gates.
+                </p>
+                <a href="https://link.springer.com/chapter/10.1007/978-981-19-9530-9_7" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">05</div>
+                <h3 class="research-title">Simulating Quantum Principles: Qiskit Versus Cirq</h3>
+                <div class="research-venue">Springer 2023</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Quantum SDKs</span>
+                    <span class="metric-tag">Implementation</span>
+                </div>
+                <p class="research-desc">
+                    Implemented quantum algorithms using Qiskit and Cirq, providing comparative analysis 
+                    of quantum development frameworks.
+                </p>
+                <a href="https://link.springer.com/chapter/10.1007/978-981-19-9530-9_18" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">06</div>
+                <h3 class="research-title">Functional Analysis of Blockchain Consensus Algorithms</h3>
+                <div class="research-venue">Elsevier 2023</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Consensus</span>
+                    <span class="metric-tag">Blockchain</span>
+                </div>
+                <p class="research-desc">
+                    Detailed interpretation of PoW, PoS, PoA consensus mechanisms and enhanced PBFT 
+                    algorithm with reward-punishment schemes.
+                </p>
+                <a href="https://www.sciencedirect.com/science/article/abs/pii/B978032396146200005X" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">07</div>
+                <h3 class="research-title">Emerging Trend in Supply Chain Blockchain and Industry 4.0</h3>
+                <div class="research-venue">Taylor & Francis 2023</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Industry 4.0</span>
+                    <span class="metric-tag">IoT</span>
+                </div>
+                <p class="research-desc">
+                    Explored synergy between blockchain and Industry 4.0 technologies for supply chain 
+                    optimization and real-time tracking.
+                </p>
+                <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003509561-6/emerging-trend-supply-chain-blockchain-industry-4-0-mohd-sarfaraz-faiyaz-garima-srivastava-shikha-singh-sachin-kumar" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">08</div>
+                <h3 class="research-title">Decentralized Identity Management Using Blockchain: A Comprehensive Survey</h3>
+                <div class="research-venue">IEEE Access 2024</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">DID</span>
+                    <span class="metric-tag">Privacy</span>
+                </div>
+                <p class="research-desc">
+                    Comprehensive survey of decentralized identity solutions, analyzing 50+ implementations 
+                    and proposing a unified framework for identity management.
+                </p>
+                <a href="#" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">09</div>
+                <h3 class="research-title">AI-Driven Smart Contract Vulnerability Detection: A Deep Learning Approach</h3>
+                <div class="research-venue">ACM Computing Surveys 2024</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Smart Contracts</span>
+                    <span class="metric-tag">Deep Learning</span>
+                </div>
+                <p class="research-desc">
+                    Developed a deep learning model achieving 96% accuracy in detecting smart contract 
+                    vulnerabilities, outperforming traditional static analysis tools.
+                </p>
+                <a href="#" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">10</div>
+                <h3 class="research-title">Quantum-Resistant Cryptographic Protocols for Blockchain Networks</h3>
+                <div class="research-venue">Nature Communications 2024</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Post-Quantum</span>
+                    <span class="metric-tag">Cryptography</span>
+                </div>
+                <p class="research-desc">
+                    Proposed novel quantum-resistant cryptographic protocols for blockchain networks, 
+                    ensuring security against quantum computing attacks.
+                </p>
+                <a href="#" class="research-link">
+                    View Paper →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="contact-content reveal">
+            <h2>Let's Connect</h2>
+            <p class="contact-subtitle">Open to opportunities and collaborations</p>
+
+            <div class="contact-grid">
+                <a href="mailto:mohdsarfaraz1306@gmail.com" class="contact-method glass-card" data-magnetic>
+                    <span class="contact-icon">📧</span>
+                    <div class="contact-label">Email</div>
+                    <div class="contact-value">mohdsarfaraz1306@gmail.com</div>
+                </a>
+
+                <a href="https://www.linkedin.com/in/mohdsarfarazfaiyaz" class="contact-method glass-card" data-magnetic>
+                    <span class="contact-icon">💼</span>
+                    <div class="contact-label">LinkedIn</div>
+                    <div class="contact-value">mohdsarfarazfaiyaz</div>
+                </a>
+
+                <a href="https://github.com/bblackheart013" class="contact-method glass-card" data-magnetic>
+                    <span class="contact-icon">💻</span>
+                    <div class="contact-label">GitHub</div>
+                    <div class="contact-value">bblackheart013</div>
+                </a>
+
+                <a href="https://x.com/mohdsarfaraz013" class="contact-method glass-card" data-magnetic>
+                    <span class="contact-icon">𝕏</span>
+                    <div class="contact-label">X (Twitter)</div>
+                    <div class="contact-value">@mohdsarfaraz013</div>
+                </a>
+
+                <a href="https://www.instagram.com/the.faraz._" class="contact-method glass-card" data-magnetic>
+                    <span class="contact-icon">📸</span>
+                    <div class="contact-label">Instagram</div>
+                    <div class="contact-value">@the.faraz._</div>
+                </a>
+
+                <div class="contact-method glass-card" data-magnetic>
+                    <span class="contact-icon">📍</span>
+                    <div class="contact-label">Location</div>
+                    <div class="contact-value">New York, USA</div>
+                </div>
+            </div>
+
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/mohdsarfarazfaiyaz" class="social-link" data-magnetic title="LinkedIn">
+                    <span>in</span>
+                </a>
+                <a href="https://github.com/bblackheart013" class="social-link" data-magnetic title="GitHub">
+                    <span>gh</span>
+                </a>
+                <a href="https://x.com/mohdsarfaraz013" class="social-link" data-magnetic title="X">
+                    <span>𝕏</span>
+                </a>
+                <a href="https://www.instagram.com/the.faraz._" class="social-link" data-magnetic title="Instagram">
+                    <span>ig</span>
+                </a>
+                <a href="https://scholar.google.com/citations?user=o1hrV0kAAAAJ&hl=en" class="social-link" data-magnetic title="Google Scholar">
+                    <span>gs</span>
+                </a>
+                <a href="https://www.researchgate.net/lab/Mohd-Sarfaraz-Faiyaz-Mohd-Sarfaraz-Faiyaz" class="social-link" data-magnetic title="ResearchGate">
+                    <span>rg</span>
+                </a>
+                <a href="https://ieeexplore.ieee.org/author/690451832691842" class="social-link" data-magnetic title="IEEE">
+                    <span>ieee</span>
+                </a>
+                <a href="https://orcid.org/0000-0002-3042-8185" class="social-link" data-magnetic title="ORCID">
+                    <span>id</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Epic Cursor
+        const cursor = document.querySelector('.cursor');
+        const follower = document.querySelector('.cursor-follower');
+        let mouseX = 0, mouseY = 0;
+        let cursorX = 0, cursorY = 0;
+        let followerX = 0, followerY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+        });
+
+        function animateCursor() {
+            cursorX += (mouseX - cursorX) * 0.5;
+            cursorY += (mouseY - cursorY) * 0.5;
+            cursor.style.left = cursorX - 10 + 'px';
+            cursor.style.top = cursorY - 10 + 'px';
+
+            followerX += (mouseX - followerX) * 0.3;
+            followerY += (mouseY - followerY) * 0.3;
+            follower.style.left = followerX - 20 + 'px';
+            follower.style.top = followerY - 20 + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, [data-magnetic], input');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => cursor.classList.add('hover'));
+            el.addEventListener('mouseleave', () => cursor.classList.remove('hover'));
+        });
+
+        // Magnetic hover effect
+        document.querySelectorAll('[data-magnetic]').forEach(el => {
+            el.addEventListener('mousemove', (e) => {
+                const rect = el.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+                el.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+
+            el.addEventListener('mouseleave', () => {
+                el.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // Loader
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('loader').classList.add('hidden');
+                animateStatsOnLoad();
+            }, 2000);
+        });
+
+        // Navigation scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.getElementById('nav');
+            if (window.scrollY > 100) {
+                nav.classList.add('scrolled');
+            } else {
+                nav.classList.remove('scrolled');
+            }
+        });
+
+        // Reveal animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -100px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                    
+                    // Animate numbers
+                    const numbers = entry.target.querySelectorAll('[data-value]');
+                    numbers.forEach(num => {
+                        const value = parseInt(num.dataset.value);
+                        animateValue(num, 0, value, 2000);
+                    });
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Number animation
+        function animateValue(obj, start, end, duration) {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                obj.innerHTML = value.toLocaleString();
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        }
+
+        // Animate stats on page load
+        function animateStatsOnLoad() {
+            const heroStats = document.querySelectorAll('.stats .stat-number[data-value]');
+            heroStats.forEach(num => {
+                const value = parseInt(num.dataset.value);
+                animateValue(num, 0, value, 2000);
+            });
+        }
+
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Project slider drag
+        const slider = document.querySelector('.project-slider');
+        let isDown = false;
+        let startX;
+        let scrollLeft;
+
+        slider.addEventListener('mousedown', (e) => {
+            isDown = true;
+            slider.style.cursor = 'grabbing';
+            startX = e.pageX - slider.offsetLeft;
+            scrollLeft = slider.scrollLeft;
+        });
+
+        slider.addEventListener('mouseleave', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+
+        slider.addEventListener('mouseup', () => {
+            isDown = false;
+            slider.style.cursor = 'grab';
+        });
+
+        slider.addEventListener('mousemove', (e) => {
+            if (!isDown) return;
+            e.preventDefault();
+            const x = e.pageX - slider.offsetLeft;
+            const walk = (x - startX) * 2;
+            slider.scrollLeft = scrollLeft - walk;
+            updateProjectDots();
+        });
+
+        // Project navigation dots
+        const projectDots = document.querySelectorAll('.project-dot');
+        const projectCards = document.querySelectorAll('.project-card');
+        
+        function updateProjectDots() {
+            const scrollPercentage = slider.scrollLeft / (slider.scrollWidth - slider.clientWidth);
+            const activeIndex = Math.round(scrollPercentage * (projectCards.length - 1));
+            
+            projectDots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === activeIndex);
+            });
+        }
+
+        projectDots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                const cardWidth = projectCards[0].offsetWidth + 30; // width + gap
+                slider.scrollTo({
+                    left: cardWidth * index,
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        slider.addEventListener('scroll', updateProjectDots);
+
+        // Mobile Menu
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileNav = document.getElementById('mobileNav');
+        const mobileLinks = document.querySelectorAll('[data-mobile-link]');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenuBtn.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+            document.body.style.overflow = mobileNav.classList.contains('active') ? 'hidden' : '';
+        });
+
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenuBtn.classList.remove('active');
+                mobileNav.classList.remove('active');
+                document.body.style.overflow = '';
+            });
+        });
+    </script>
+</body>
+</html>
