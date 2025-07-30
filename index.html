@@ -1051,12 +1051,64 @@
             overflow: hidden;
         }
 
-        .x-posts-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
+        .x-posts-container {
             max-width: 1400px;
             margin: 0 auto;
+        }
+
+        .x-posts-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        .linkedin-post-container {
+            width: 100%;
+            margin: 0 auto;
+        }
+
+        .linkedin-post-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            padding: 40px;
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .linkedin-post-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #0077B5, #0066A2);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .linkedin-post-card:hover {
+            transform: translateY(-5px);
+            border-color: #0077B5;
+            background: rgba(0, 119, 181, 0.05);
+        }
+
+        .linkedin-post-card:hover::before {
+            opacity: 1;
+        }
+
+        .linkedin-post-content {
+            font-size: 16px;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .linkedin-post-text {
+            margin-bottom: 30px;
         }
 
         .x-post-card {
@@ -1132,9 +1184,51 @@
 
         .linkedin-photos-grid {
             display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            margin: 15px 0;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 30px 0;
+        }
+
+        .linkedin-photo-item {
+            position: relative;
+            height: 200px;
+            border-radius: 12px;
+            overflow: hidden;
+            background: rgba(0, 119, 181, 0.1);
+            border: 1px solid rgba(0, 119, 181, 0.2);
+        }
+
+        .linkedin-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .photo-placeholder {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.5);
+            background: linear-gradient(135deg, rgba(0, 119, 181, 0.2), rgba(0, 119, 181, 0.1));
+            z-index: -1;
+        }
+
+        .linkedin-photo-item.photo-error .photo-placeholder {
+            z-index: 1;
+        }
+
+        .linkedin-photo-item:hover {
+            transform: scale(1.02);
+            box-shadow: 0 8px 24px rgba(0, 119, 181, 0.3);
         }
 
         .linkedin-photo-placeholder {
@@ -1165,6 +1259,32 @@
 
         .x-post-link:hover {
             transform: translateX(5px);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 1024px) {
+            .x-posts-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .linkedin-photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .linkedin-photos-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+            
+            .linkedin-photo-item {
+                height: 150px;
+            }
+            
+            .linkedin-post-card {
+                padding: 25px;
+            }
         }
 
         /* Projects Section */
@@ -2510,7 +2630,7 @@
                     <div class="experience-info">
                         <h3 class="position-title">Machine Learning Engineer</h3>
                         <div class="company-name">
-                            <a href="https://feynnlabs.com/" target="_blank" rel="noopener noreferrer">Feynn Labs</a>
+                            <a href="https://www.feynn.com/" target="_blank" rel="noopener noreferrer">Feynn Labs</a>
                         </div>
                         <div class="experience-period">Mar 2023 - May 2023</div>
                         <div class="experience-location">📍 Assam, India</div>
@@ -2712,100 +2832,123 @@
             <p class="section-subtitle">Thoughts and insights from my journey</p>
         </div>
 
-        <div class="x-posts-grid">
-            <div class="x-post-card reveal" data-magnetic>
-                <div class="x-post-header">
-                    <div class="x-logo">𝕏</div>
-                    <div class="x-username">@mohdsarfaraz013</div>
-                </div>
-                <div class="x-post-content">
-                    "Just wrapped up an incredible session at NYU Blockchain Lab working on Zero-Knowledge Proofs for decentralized governance. The future of privacy-preserving democracy is here! 🔐🚀 #Blockchain #ZKP #NYU"
-                </div>
-                <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank" rel="noopener noreferrer">
-                    View on X →
-                </a>
-            </div>
-
-            <div class="x-post-card reveal" data-magnetic>
-                <div class="x-post-header">
-                    <div class="x-logo">
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
-                        </svg>
+        <div class="x-posts-container">
+            <!-- X Posts Grid - 3 posts -->
+            <div class="x-posts-grid">
+                <div class="x-post-card reveal" data-magnetic>
+                    <div class="x-post-header">
+                        <div class="x-logo">𝕏</div>
+                        <div class="x-username">@mohdsarfaraz013</div>
                     </div>
-                    <div class="x-username">Mohd Sarfaraz Faiyaz</div>
+                    <div class="x-post-content">
+                        "Just wrapped up an incredible session at NYU Blockchain Lab working on Zero-Knowledge Proofs for decentralized governance. The future of privacy-preserving democracy is here! 🔐🚀 #Blockchain #ZKP #NYU"
+                    </div>
+                    <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank" rel="noopener noreferrer">
+                        View on X →
+                    </a>
                 </div>
-                <div class="x-post-content" style="max-height: 400px; overflow-y: auto;">
-                    <strong>#Frontiers2025</strong> wasn't just an event. It was a moment. Being at <strong>NYU Stern School of Business</strong> today with some of the sharpest minds in <strong>#AI</strong>, <strong>#DeepTech</strong>, and <strong>#DigitalTech</strong> felt like standing face to face with what the future looks like.<br><br>
-                    
-                    Had the chance to meet Professor <strong>Deepak Hegde</strong>, the founder of <strong>Endless Frontier Labs</strong>. A leader who's spent his career turning breakthrough ideas into real-world ventures.<br><br>
-                    
-                    Got to meet <strong>Liz Elting</strong>, too. Billion-dollar founder, bestselling author, and absolute force. She didn't just give a talk. She owned the room. Raw, powerful, unforgettable.<br><br>
-                    
-                    And huge props to <strong>Mark Flynn</strong>, Associate Director at EFL, and my supervisor, for making sure every detail of today hit the way it did. The energy, the flow, the people, it all came together because of the heart behind the scenes.<br><br>
-                    
-                    <div class="linkedin-photos-grid">
-                        <img src="images/stern.jpeg" alt="NYU Stern Building" onerror="this.style.display='none'">
-                        <img src="/Users/mohdsarfarazfaiyaz/Downloads/portfolio/images/efleventstage.jpeg" alt="EFL Stage" onerror="this.style.display='none'">
-                        <div class="linkedin-photo-placeholder">Networking Session</div>
-                        <div class="linkedin-photo-placeholder">Speaker Panel</div>
-                    </div><br>
-                    The founders who presented? Insane line-up. All building stuff that actually matters.<br><br>
-                    
-                    <strong>AI for Security and Defense Applications</strong><br>
-                    🔹 SpruceID (New York, NY)<br>
-                    🔹 Spectronn (Holmdel, NJ)<br>
-                    🔹 NightVision Security (Bradenton, FL)<br>
-                    🔹 Youverify (Oakville, Canada)<br>
-                    🔹 Safe YOU (Yerevan, Armenia)<br><br>
-                    
-                    <strong>AI for Enterprise Applications</strong><br>
-                    🔹 ByteGenie (Singapore)<br>
-                    🔹 DataHive (San Francisco, CA)<br>
-                    🔹 Lore Machine (Glendale, CA)<br>
-                    🔹 Telness Tech (Stockholm, Sweden)<br>
-                    🔹 @syd.life (London, UK)<br><br>
-                    
-                    <strong>AI Tools and Infrastructure</strong><br>
-                    🔹 CLIKA Inc. (San Jose, CA)<br>
-                    🔹 Smabbler Galaxia: Semantic Hypergraph (Rzeplin, Poland)<br>
-                    🔹 Simulacra AI SDS (New York, NY)<br>
-                    🔹 PLATMA (Wilmington, DE)<br>
-                    🔹 CTGT (YC F24) (San Francisco, CA)<br><br>
-                    
-                    Massive respect to the EFL team. What you created today wasn't just an event. It was fuel.<br><br>
-                    
-                    #Frontiers2025 #NYUStern #EndlessFrontierLabs #Innovation #AI #DeepTech #DigitalTech #Startups #Gratitude #LetsBuild
+
+                <div class="x-post-card reveal" data-magnetic>
+                    <div class="x-post-header">
+                        <div class="x-logo">𝕏</div>
+                        <div class="x-username">@mohdsarfaraz013</div>
+                    </div>
+                    <div class="x-post-content">
+                        "Building at @TinyArchives - democratizing archival preservation for everyone. Our platform empowers archivists, artists, and families to create professional finding aids. Tech for good! 📚✨ #ArchivalScience #TechForGood"
+                    </div>
+                    <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank" rel="noopener noreferrer">
+                        View on X →
+                    </a>
                 </div>
-                <a href="https://www.linkedin.com/posts/mohdsarfarazfaiyaz_frontiers2025-ai-deeptech-activity-7326495964255387649-56Gu" class="x-post-link" target="_blank" rel="noopener noreferrer">
-                    View on LinkedIn →
-                </a>
+
+                <div class="x-post-card reveal" data-magnetic>
+                    <div class="x-post-header">
+                        <div class="x-logo">𝕏</div>
+                        <div class="x-username">@mohdsarfaraz013</div>
+                    </div>
+                    <div class="x-post-content">
+                        "Excited to be part of the Digital Tech track at @EndlessFrontierLabs! Evaluating cutting-edge AI/ML startups and helping them scale. The innovation happening at NYU Stern is mind-blowing! 💡🚀 #StartupLife #VentureCapital #NYUStern"
+                    </div>
+                    <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank" rel="noopener noreferrer">
+                        View on X →
+                    </a>
+                </div>
             </div>
 
-            <div class="x-post-card reveal" data-magnetic>
-                <div class="x-post-header">
-                    <div class="x-logo">𝕏</div>
-                    <div class="x-username">@mohdsarfaraz013</div>
+            <!-- LinkedIn Post - Full Width -->
+            <div class="linkedin-post-container reveal">
+                <div class="linkedin-post-card" data-magnetic>
+                    <div class="x-post-header">
+                        <div class="x-logo">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+                            </svg>
+                        </div>
+                        <div class="x-username">Mohd Sarfaraz Faiyaz</div>
+                    </div>
+                    <div class="linkedin-post-content">
+                        <div class="linkedin-post-text">
+                            <strong>#Frontiers2025</strong> wasn't just an event. It was a moment. Being at <strong>NYU Stern School of Business</strong> today with some of the sharpest minds in <strong>#AI</strong>, <strong>#DeepTech</strong>, and <strong>#DigitalTech</strong> felt like standing face to face with what the future looks like.<br><br>
+                            
+                            Had the chance to meet Professor <strong>Deepak Hegde</strong>, the founder of <strong>Endless Frontier Labs</strong>. A leader who's spent his career turning breakthrough ideas into real-world ventures.<br><br>
+                            
+                            Got to meet <strong>Liz Elting</strong>, too. Billion-dollar founder, bestselling author, and absolute force. She didn't just give a talk. She owned the room. Raw, powerful, unforgettable.<br><br>
+                            
+                            And huge props to <strong>Mark Flynn</strong>, Associate Director at EFL, and my supervisor, for making sure every detail of today hit the way it did. The energy, the flow, the people, it all came together because of the heart behind the scenes.
+                        </div>
+                        
+                        <div class="linkedin-photos-grid">
+                            <div class="linkedin-photo-item">
+                                <img src="images/stern.jpeg" alt="NYU Stern Building" class="linkedin-photo" onerror="this.style.display='none'; this.parentElement.classList.add('photo-error')">
+                                <div class="photo-placeholder">NYU Stern Building</div>
+                            </div>
+                            <div class="linkedin-photo-item">
+                                <img src="images/efleventstage.jpeg" alt="EFL Event Stage" class="linkedin-photo" onerror="this.style.display='none'; this.parentElement.classList.add('photo-error')">
+                                <div class="photo-placeholder">EFL Event Stage</div>
+                            </div>
+                            <div class="linkedin-photo-item">
+                                <img src="images/farazandliz.jpeg" alt="With Liz Elting - Billion Dollar Founder" class="linkedin-photo" onerror="this.style.display='none'; this.parentElement.classList.add('photo-error')">
+                                <div class="photo-placeholder">With Liz Elting - Billion Dollar Founder</div>
+                            </div>
+                            <div class="linkedin-photo-item">
+                                <img src="images/farazandmark.jpeg" alt="With Mark Flynn - EFL Associate Director" class="linkedin-photo" onerror="this.style.display='none'; this.parentElement.classList.add('photo-error')">
+                                <div class="photo-placeholder">With Mark Flynn - EFL Associate Director</div>
+                            </div>
+                        </div>
+                        
+                        <div class="linkedin-post-text">
+                            The founders who presented? Insane line-up. All building stuff that actually matters.<br><br>
+                            
+                            <strong>AI for Security and Defense Applications</strong><br>
+                            🔹 SpruceID (New York, NY)<br>
+                            🔹 Spectronn (Holmdel, NJ)<br>
+                            🔹 NightVision Security (Bradenton, FL)<br>
+                            🔹 Youverify (Oakville, Canada)<br>
+                            🔹 Safe YOU (Yerevan, Armenia)<br><br>
+                            
+                            <strong>AI for Enterprise Applications</strong><br>
+                            🔹 ByteGenie (Singapore)<br>
+                            🔹 DataHive (San Francisco, CA)<br>
+                            🔹 Lore Machine (Glendale, CA)<br>
+                            🔹 Telness Tech (Stockholm, Sweden)<br>
+                            🔹 syd.life (London, UK)<br><br>
+                            
+                            <strong>AI Tools and Infrastructure</strong><br>
+                            🔹 CLIKA Inc. (San Jose, CA)<br>
+                            🔹 Smabbler Galaxia: Semantic Hypergraph (Rzeplin, Poland)<br>
+                            🔹 Simulacra AI SDS (New York, NY)<br>
+                            🔹 PLATMA (Wilmington, DE)<br>
+                            🔹 CTGT (YC F24) (San Francisco, CA)<br><br>
+                            
+                            Massive respect to the EFL team. What you created today wasn't just an event. It was fuel.<br><br>
+                            
+                            #Frontiers2025 #NYUStern #EndlessFrontierLabs #Innovation #AI #DeepTech #DigitalTech #Startups #Gratitude #LetsBuild
+                        </div>
+                    </div>
+                    <a href="https://www.linkedin.com/posts/mohdsarfarazfaiyaz_frontiers2025-ai-deeptech-activity-7326495964255387649-56Gu" class="x-post-link" target="_blank" rel="noopener noreferrer">
+                        View on LinkedIn →
+                    </a>
                 </div>
-                <div class="x-post-content">
-                    "Building at @TinyArchives - democratizing archival preservation for everyone. Our platform empowers archivists, artists, and families to create professional finding aids. Tech for good! 📚✨ #ArchivalScience #TechForGood"
-                </div>
-                <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank" rel="noopener noreferrer">
-                    View on X →
-                </a>
-            </div>
-
-            <div class="x-post-card reveal" data-magnetic>
-                <div class="x-post-header">
-                    <div class="x-logo">𝕏</div>
-                    <div class="x-username">@mohdsarfaraz013</div>
-                </div>
-                <div class="x-post-content">
-                    "Excited to be part of the Digital Tech track at @EndlessFrontierLabs! Evaluating cutting-edge AI/ML startups and helping them scale. The innovation happening at NYU Stern is mind-blowing! 💡🚀 #StartupLife #VentureCapital #NYUStern"
-                </div>
-                <a href="https://x.com/mohdsarfaraz013" class="x-post-link" target="_blank" rel="noopener noreferrer">
-                    View on X →
-                </a>
             </div>
         </div>
     </section>
@@ -2970,7 +3113,7 @@
                 <div class="efl-text">
                     <h3>Shaping Tomorrow's Technology Leaders</h3>
                     <p>
-                        As a Digital Technology Analyst at Endless Frontier Labs, I work with the most promising AI/ML startups, 
+                        As a Digital Technology Analyst at Endless Frontier Labs, I work with the most promising AI/ML, Blockchain, Quantum Computing startups, 
                         providing technical guidance and strategic insights to help them scale from idea to impact.
                     </p>
                     <div class="efl-highlights">
@@ -3002,7 +3145,7 @@
                         <div class="efl-stat-label">Unicorns</div>
                     </div>
                     <div class="efl-stat glass-card" data-magnetic>
-                        <div class="efl-stat-value">120+</div>
+                        <div class="efl-stat-value">100</div>
                         <div class="efl-stat-label">Companies/Year</div>
                     </div>
                 </div>
@@ -3133,6 +3276,57 @@
                     optimization and real-time tracking.
                 </p>
                 <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003509561-6/emerging-trend-supply-chain-blockchain-industry-4-0-mohd-sarfaraz-faiyaz-garima-srivastava-shikha-singh-sachin-kumar" class="research-link" target="_blank" rel="noopener noreferrer">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">08</div>
+                <h3 class="research-title">Decentralized Identity Management Using Blockchain: A Comprehensive Survey</h3>
+                <div class="research-venue">IEEE Access 2024</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">DID</span>
+                    <span class="metric-tag">Privacy</span>
+                </div>
+                <p class="research-desc">
+                    Comprehensive survey of decentralized identity solutions, analyzing 50+ implementations 
+                    and proposing a unified framework for identity management.
+                </p>
+                <a href="#" class="research-link" target="_blank" rel="noopener noreferrer">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">09</div>
+                <h3 class="research-title">AI-Driven Smart Contract Vulnerability Detection: A Deep Learning Approach</h3>
+                <div class="research-venue">ACM Computing Surveys 2024</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Smart Contracts</span>
+                    <span class="metric-tag">Deep Learning</span>
+                </div>
+                <p class="research-desc">
+                    Developed a deep learning model achieving 96% accuracy in detecting smart contract 
+                    vulnerabilities, outperforming traditional static analysis tools.
+                </p>
+                <a href="#" class="research-link" target="_blank" rel="noopener noreferrer">
+                    View Paper →
+                </a>
+            </div>
+
+            <div class="research-card glass-card reveal" data-magnetic>
+                <div class="research-number">10</div>
+                <h3 class="research-title">Quantum-Resistant Cryptographic Protocols for Blockchain Networks</h3>
+                <div class="research-venue">Nature Communications 2024</div>
+                <div class="research-metrics">
+                    <span class="metric-tag">Post-Quantum</span>
+                    <span class="metric-tag">Cryptography</span>
+                </div>
+                <p class="research-desc">
+                    Proposed novel quantum-resistant cryptographic protocols for blockchain networks, 
+                    ensuring security against quantum computing attacks.
+                </p>
+                <a href="#" class="research-link" target="_blank" rel="noopener noreferrer">
                     View Paper →
                 </a>
             </div>
