@@ -451,7 +451,7 @@
         }
         .project-link:hover { background: rgba(255,255,255,0.1); border-color: var(--accent); }
         .project-nav {
-            display: flex; justify-content: center; gap: 8px; margin-top: 20px;
+            display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 20px;
         }
         .project-dot {
             width: 6px; height: 6px; border-radius: 50%;
@@ -459,6 +459,14 @@
             transition: all 0.2s;
         }
         .project-dot.active { background: var(--accent); transform: scale(1.5); }
+        .slider-arrow {
+            width: 36px; height: 36px; border-radius: 50%;
+            background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.10);
+            color: var(--text); font-size: 16px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: all 0.2s; font-family: var(--font-b);
+        }
+        .slider-arrow:hover { background: var(--accent); color: var(--bg); border-color: var(--accent); }
 
         /* === AWARDS === */
         .awards-grid {
@@ -1051,80 +1059,6 @@
 
         <div style="max-width: 1400px; margin: 0 auto; padding: 0 20px;">
             <div class="project-slider">
-                <div class="project-card gs">
-                    <div class="project-bg" style="background: linear-gradient(135deg, #0a1a1a 0%, #081210 100%);"></div>
-                    <div class="project-grad"></div>
-                    <div class="project-info">
-                        <span class="project-tag">Startup</span>
-                        <h3 class="project-name">Cypher AI Technologies</h3>
-                        <p class="project-desc">Co-founded and served as CTO (2022-2024). Built complete HRMS platform serving 50+ SMB clients with 99.9% uptime and 32% productivity improvements.</p>
-                        <div class="project-stats">
-                            <div><div class="project-stat-val">50+</div><div class="project-stat-lbl">Active Clients</div></div>
-                            <div><div class="project-stat-val">2 Years</div><div class="project-stat-lbl">As Founder</div></div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="project-card gs">
-                    <div class="project-bg" style="background: linear-gradient(135deg, #0a0a20 0%, #08081a 100%);"></div>
-                    <div class="project-grad"></div>
-                    <div class="project-info">
-                        <span class="project-tag">NYU Blockchain Lab</span>
-                        <h3 class="project-name">DeFi ZKP Governance System</h3>
-                        <p class="project-desc">Privacy-focused decentralized governance platform integrating Zero-Knowledge Proofs and ERC-725 identity standards for digital democracy in DeFi.</p>
-                        <div class="project-stats">
-                            <div><div class="project-stat-val">ZKP</div><div class="project-stat-lbl">Privacy Tech</div></div>
-                            <div><div class="project-stat-val">ERC-725</div><div class="project-stat-lbl">Identity</div></div>
-                        </div>
-                        <a href="https://github.com/bblackheart013/defi-zkp-governance-nyu" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card gs">
-                    <div class="project-bg" style="background: linear-gradient(135deg, #1a0a0a 0%, #120808 100%);"></div>
-                    <div class="project-grad"></div>
-                    <div class="project-info">
-                        <span class="project-tag">Hardware AI</span>
-                        <h3 class="project-name">AI Accelerated Hardware</h3>
-                        <p class="project-desc">FPGA-based vector multiplication accelerator achieving up to 4000x speedup over software implementation through parallel processing.</p>
-                        <div class="project-stats">
-                            <div><div class="project-stat-val">4000x</div><div class="project-stat-lbl">Speedup</div></div>
-                            <div><div class="project-stat-val">FPGA</div><div class="project-stat-lbl">Technology</div></div>
-                        </div>
-                        <a href="https://github.com/bblackheart013/AI-ACCELERATED_HARDWARE" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card gs">
-                    <div class="project-bg" style="background: linear-gradient(135deg, #1a150a 0%, #120e08 100%);"></div>
-                    <div class="project-grad"></div>
-                    <div class="project-info">
-                        <span class="project-tag">Deep Learning</span>
-                        <h3 class="project-name">Adversarial Attacks on ImageNet</h3>
-                        <p class="project-desc">Implemented FGSM, PGD, and patch-based attacks on ResNet-34, demonstrating vulnerabilities in production-grade image classifiers with 70%+ fooling rates.</p>
-                        <div class="project-stats">
-                            <div><div class="project-stat-val">70%+</div><div class="project-stat-lbl">Fooling Rate</div></div>
-                            <div><div class="project-stat-val">NYU DL</div><div class="project-stat-lbl">Course</div></div>
-                        </div>
-                        <a href="https://github.com/bblackheart013/deep-learning-mini-project-3" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
-                    </div>
-                </div>
-
-                <div class="project-card gs">
-                    <div class="project-bg" style="background: linear-gradient(135deg, #0a1a0e 0%, #081208 100%);"></div>
-                    <div class="project-grad"></div>
-                    <div class="project-info">
-                        <span class="project-tag">Embedded Systems</span>
-                        <h3 class="project-name">Parkinson's Disease Movement Monitor</h3>
-                        <p class="project-desc">Real-time wearable device using STM32 microcontroller and LSM6DSL sensor to detect tremors (3-5Hz) and dyskinesia (5-7Hz) with FFT analysis for medication optimization.</p>
-                        <div class="project-stats">
-                            <div><div class="project-stat-val">&gt;95%</div><div class="project-stat-lbl">Detection Rate</div></div>
-                            <div><div class="project-stat-val">52Hz</div><div class="project-stat-lbl">Real-time</div></div>
-                        </div>
-                        <a href="https://github.com/bblackheart013/parkinson-device" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
-                    </div>
-                </div>
-
                 <!-- NeuroCardiac Shield -->
                 <div class="project-card gs">
                     <div class="project-bg" style="background: linear-gradient(135deg, #0a0e1a 0%, #080a14 100%);"></div>
@@ -1172,8 +1106,83 @@
                         <a href="https://github.com/bblackheart013/visionmate" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
                     </div>
                 </div>
+
+                <div class="project-card gs">
+                    <div class="project-bg" style="background: linear-gradient(135deg, #0a1a0e 0%, #081208 100%);"></div>
+                    <div class="project-grad"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Embedded Systems</span>
+                        <h3 class="project-name">Parkinson's Disease Movement Monitor</h3>
+                        <p class="project-desc">Real-time wearable device using STM32 microcontroller and LSM6DSL sensor to detect tremors (3-5Hz) and dyskinesia (5-7Hz) with FFT analysis for medication optimization.</p>
+                        <div class="project-stats">
+                            <div><div class="project-stat-val">&gt;95%</div><div class="project-stat-lbl">Detection Rate</div></div>
+                            <div><div class="project-stat-val">52Hz</div><div class="project-stat-lbl">Real-time</div></div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/parkinson-device" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card gs">
+                    <div class="project-bg" style="background: linear-gradient(135deg, #1a150a 0%, #120e08 100%);"></div>
+                    <div class="project-grad"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Deep Learning</span>
+                        <h3 class="project-name">Adversarial Attacks on ImageNet</h3>
+                        <p class="project-desc">Implemented FGSM, PGD, and patch-based attacks on ResNet-34, demonstrating vulnerabilities in production-grade image classifiers with 70%+ fooling rates.</p>
+                        <div class="project-stats">
+                            <div><div class="project-stat-val">70%+</div><div class="project-stat-lbl">Fooling Rate</div></div>
+                            <div><div class="project-stat-val">NYU DL</div><div class="project-stat-lbl">Course</div></div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/deep-learning-mini-project-3" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card gs">
+                    <div class="project-bg" style="background: linear-gradient(135deg, #0a0a20 0%, #08081a 100%);"></div>
+                    <div class="project-grad"></div>
+                    <div class="project-info">
+                        <span class="project-tag">NYU Blockchain Lab</span>
+                        <h3 class="project-name">DeFi ZKP Governance System</h3>
+                        <p class="project-desc">Privacy-focused decentralized governance platform integrating Zero-Knowledge Proofs and ERC-725 identity standards for digital democracy in DeFi.</p>
+                        <div class="project-stats">
+                            <div><div class="project-stat-val">ZKP</div><div class="project-stat-lbl">Privacy Tech</div></div>
+                            <div><div class="project-stat-val">ERC-725</div><div class="project-stat-lbl">Identity</div></div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/defi-zkp-governance-nyu" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card gs">
+                    <div class="project-bg" style="background: linear-gradient(135deg, #1a0a0a 0%, #120808 100%);"></div>
+                    <div class="project-grad"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Hardware AI</span>
+                        <h3 class="project-name">AI Accelerated Hardware</h3>
+                        <p class="project-desc">FPGA-based vector multiplication accelerator achieving up to 4000x speedup over software implementation through parallel processing.</p>
+                        <div class="project-stats">
+                            <div><div class="project-stat-val">4000x</div><div class="project-stat-lbl">Speedup</div></div>
+                            <div><div class="project-stat-val">FPGA</div><div class="project-stat-lbl">Technology</div></div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/AI-ACCELERATED_HARDWARE" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <div class="project-card gs">
+                    <div class="project-bg" style="background: linear-gradient(135deg, #0a1a1a 0%, #081210 100%);"></div>
+                    <div class="project-grad"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Startup</span>
+                        <h3 class="project-name">Cypher AI Technologies</h3>
+                        <p class="project-desc">Co-founded and served as CTO (2022-2024). Built complete HRMS platform serving 50+ SMB clients with 99.9% uptime and 32% productivity improvements.</p>
+                        <div class="project-stats">
+                            <div><div class="project-stat-val">50+</div><div class="project-stat-lbl">Active Clients</div></div>
+                            <div><div class="project-stat-val">2 Years</div><div class="project-stat-lbl">As Founder</div></div>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="project-nav">
+                <button class="slider-arrow slider-prev">&larr;</button>
                 <div class="project-dot active" data-project="0"></div>
                 <div class="project-dot" data-project="1"></div>
                 <div class="project-dot" data-project="2"></div>
@@ -1182,6 +1191,7 @@
                 <div class="project-dot" data-project="5"></div>
                 <div class="project-dot" data-project="6"></div>
                 <div class="project-dot" data-project="7"></div>
+                <button class="slider-arrow slider-next">&rarr;</button>
             </div>
         </div>
     </section>
@@ -1196,24 +1206,15 @@
             <div class="research-grid">
                 <div class="card research-card gs">
                     <div class="research-num">01</div>
-                    <h3 class="research-title">Optimizing Electric Vehicle Charging Station Deployment: A Predictive Modeling and Optimization Approach</h3>
-                    <div class="research-venue">IEEE Computer Society of India 2024</div>
-                    <div class="research-tags"><span class="tag">Machine Learning</span><span class="tag">Optimization</span></div>
-                    <p class="research-desc">Developed predictive models achieving 93% accuracy for EV charging demand forecasting. Used Gurobi optimization to minimize deployment costs to INR 3,978,066.</p>
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10725354" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
+                    <h3 class="research-title">Permission-Based Smart Contract Framework for Decentralized and Secure Medical Record Management in Healthcare</h3>
+                    <div class="research-venue">IEEE CISCON 2025</div>
+                    <div class="research-tags"><span class="tag">Blockchain</span><span class="tag">Healthcare</span></div>
+                    <p class="research-desc">Permission-based smart contracts enabling patients to fully control their health records on blockchain. Dynamic access granting/revocation for providers with transparent permission registry and tamper-proof architecture.</p>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/11337695" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
                 </div>
 
                 <div class="card research-card gs">
                     <div class="research-num">02</div>
-                    <h3 class="research-title">Securing Supply Chain - Blockchain: Leveraging ICC for Product Verification and Validation</h3>
-                    <div class="research-venue">IEEE ICDT 2024</div>
-                    <div class="research-tags"><span class="tag">Blockchain</span><span class="tag">Supply Chain</span></div>
-                    <p class="research-desc">Explored blockchain and QR codes for combating $500B annual counterfeit losses. Demonstrated enhanced transparency and traceability in supply chains.</p>
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10489614" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
-                </div>
-
-                <div class="card research-card gs">
-                    <div class="research-num">03</div>
                     <h3 class="research-title">Resilient Domain Authentication Framework for Enhancing Digital Identity Security</h3>
                     <div class="research-venue">Springer 2025</div>
                     <div class="research-tags"><span class="tag">Security</span><span class="tag">Blockchain</span></div>
@@ -1222,43 +1223,25 @@
                 </div>
 
                 <div class="card research-card gs">
+                    <div class="research-num">03</div>
+                    <h3 class="research-title">Optimizing Electric Vehicle Charging Station Deployment: A Predictive Modeling and Optimization Approach</h3>
+                    <div class="research-venue">IEEE Computer Society of India 2024</div>
+                    <div class="research-tags"><span class="tag">Machine Learning</span><span class="tag">Optimization</span></div>
+                    <p class="research-desc">Developed predictive models achieving 93% accuracy for EV charging demand forecasting. Used Gurobi optimization to minimize deployment costs to INR 3,978,066.</p>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10725354" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
+                </div>
+
+                <div class="card research-card gs">
                     <div class="research-num">04</div>
-                    <h3 class="research-title">Evolutionary Analysis: Classical Bits to Quantum Qubits</h3>
-                    <div class="research-venue">Springer Quantum Computing 2023</div>
-                    <div class="research-tags"><span class="tag">Quantum Computing</span><span class="tag">Theory</span></div>
-                    <p class="research-desc">Comprehensive analysis of transition from classical to quantum computing, exploring superposition, entanglement, and quantum gates.</p>
-                    <a href="https://link.springer.com/chapter/10.1007/978-981-19-9530-9_7" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
+                    <h3 class="research-title">Securing Supply Chain - Blockchain: Leveraging ICC for Product Verification and Validation</h3>
+                    <div class="research-venue">IEEE ICDT 2024</div>
+                    <div class="research-tags"><span class="tag">Blockchain</span><span class="tag">Supply Chain</span></div>
+                    <p class="research-desc">Explored blockchain and QR codes for combating $500B annual counterfeit losses. Demonstrated enhanced transparency and traceability in supply chains.</p>
+                    <a href="https://ieeexplore.ieee.org/abstract/document/10489614" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
                 </div>
 
                 <div class="card research-card gs">
                     <div class="research-num">05</div>
-                    <h3 class="research-title">Simulating Quantum Principles: Qiskit Versus Cirq</h3>
-                    <div class="research-venue">Springer 2023</div>
-                    <div class="research-tags"><span class="tag">Quantum SDKs</span><span class="tag">Implementation</span></div>
-                    <p class="research-desc">Implemented quantum algorithms using Qiskit and Cirq, providing comparative analysis of quantum development frameworks.</p>
-                    <a href="https://link.springer.com/chapter/10.1007/978-981-19-9530-9_18" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
-                </div>
-
-                <div class="card research-card gs">
-                    <div class="research-num">06</div>
-                    <h3 class="research-title">Functional Analysis of Blockchain Consensus Algorithms</h3>
-                    <div class="research-venue">Elsevier 2023</div>
-                    <div class="research-tags"><span class="tag">Consensus</span><span class="tag">Blockchain</span></div>
-                    <p class="research-desc">Detailed interpretation of PoW, PoS, PoA consensus mechanisms and enhanced PBFT algorithm with reward-punishment schemes.</p>
-                    <a href="https://www.sciencedirect.com/science/article/abs/pii/B978032396146200005X" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
-                </div>
-
-                <div class="card research-card gs">
-                    <div class="research-num">07</div>
-                    <h3 class="research-title">Emerging Trend in Supply Chain Blockchain and Industry 4.0</h3>
-                    <div class="research-venue">Taylor &amp; Francis 2023</div>
-                    <div class="research-tags"><span class="tag">Industry 4.0</span><span class="tag">IoT</span></div>
-                    <p class="research-desc">Explored synergy between blockchain and Industry 4.0 technologies for supply chain optimization and real-time tracking.</p>
-                    <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003509561-6/emerging-trend-supply-chain-blockchain-industry-4-0-mohd-sarfaraz-faiyaz-garima-srivastava-shikha-singh-sachin-kumar" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
-                </div>
-
-                <div class="card research-card gs">
-                    <div class="research-num">08</div>
                     <h3 class="research-title">Decentralized Identity Management Using Blockchain: A Comprehensive Survey</h3>
                     <div class="research-venue">IEEE Access 2024</div>
                     <div class="research-tags"><span class="tag">DID</span><span class="tag">Privacy</span></div>
@@ -1267,7 +1250,7 @@
                 </div>
 
                 <div class="card research-card gs">
-                    <div class="research-num">09</div>
+                    <div class="research-num">06</div>
                     <h3 class="research-title">AI-Driven Smart Contract Vulnerability Detection: A Deep Learning Approach</h3>
                     <div class="research-venue">ACM Computing Surveys 2024</div>
                     <div class="research-tags"><span class="tag">Smart Contracts</span><span class="tag">Deep Learning</span></div>
@@ -1276,7 +1259,7 @@
                 </div>
 
                 <div class="card research-card gs">
-                    <div class="research-num">10</div>
+                    <div class="research-num">07</div>
                     <h3 class="research-title">Quantum-Resistant Cryptographic Protocols for Blockchain Networks</h3>
                     <div class="research-venue">Nature Communications 2024</div>
                     <div class="research-tags"><span class="tag">Post-Quantum</span><span class="tag">Cryptography</span></div>
@@ -1285,12 +1268,39 @@
                 </div>
 
                 <div class="card research-card gs">
+                    <div class="research-num">08</div>
+                    <h3 class="research-title">Evolutionary Analysis: Classical Bits to Quantum Qubits</h3>
+                    <div class="research-venue">Springer Quantum Computing 2023</div>
+                    <div class="research-tags"><span class="tag">Quantum Computing</span><span class="tag">Theory</span></div>
+                    <p class="research-desc">Comprehensive analysis of transition from classical to quantum computing, exploring superposition, entanglement, and quantum gates.</p>
+                    <a href="https://link.springer.com/chapter/10.1007/978-981-19-9530-9_7" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
+                </div>
+
+                <div class="card research-card gs">
+                    <div class="research-num">09</div>
+                    <h3 class="research-title">Simulating Quantum Principles: Qiskit Versus Cirq</h3>
+                    <div class="research-venue">Springer 2023</div>
+                    <div class="research-tags"><span class="tag">Quantum SDKs</span><span class="tag">Implementation</span></div>
+                    <p class="research-desc">Implemented quantum algorithms using Qiskit and Cirq, providing comparative analysis of quantum development frameworks.</p>
+                    <a href="https://link.springer.com/chapter/10.1007/978-981-19-9530-9_18" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
+                </div>
+
+                <div class="card research-card gs">
+                    <div class="research-num">10</div>
+                    <h3 class="research-title">Functional Analysis of Blockchain Consensus Algorithms</h3>
+                    <div class="research-venue">Elsevier 2023</div>
+                    <div class="research-tags"><span class="tag">Consensus</span><span class="tag">Blockchain</span></div>
+                    <p class="research-desc">Detailed interpretation of PoW, PoS, PoA consensus mechanisms and enhanced PBFT algorithm with reward-punishment schemes.</p>
+                    <a href="https://www.sciencedirect.com/science/article/abs/pii/B978032396146200005X" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
+                </div>
+
+                <div class="card research-card gs">
                     <div class="research-num">11</div>
-                    <h3 class="research-title">Permission-Based Smart Contract Framework for Decentralized and Secure Medical Record Management in Healthcare</h3>
-                    <div class="research-venue">IEEE CISCON 2025</div>
-                    <div class="research-tags"><span class="tag">Blockchain</span><span class="tag">Healthcare</span></div>
-                    <p class="research-desc">Permission-based smart contracts enabling patients to fully control their health records on blockchain. Dynamic access granting/revocation for providers with transparent permission registry and tamper-proof architecture.</p>
-                    <a href="https://ieeexplore.ieee.org/abstract/document/11337695" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
+                    <h3 class="research-title">Emerging Trend in Supply Chain Blockchain and Industry 4.0</h3>
+                    <div class="research-venue">Taylor &amp; Francis 2023</div>
+                    <div class="research-tags"><span class="tag">Industry 4.0</span><span class="tag">IoT</span></div>
+                    <p class="research-desc">Explored synergy between blockchain and Industry 4.0 technologies for supply chain optimization and real-time tracking.</p>
+                    <a href="https://www.taylorfrancis.com/chapters/edit/10.1201/9781003509561-6/emerging-trend-supply-chain-blockchain-industry-4-0-mohd-sarfaraz-faiyaz-garima-srivastava-shikha-singh-sachin-kumar" class="research-btn" target="_blank" rel="noopener noreferrer">View Paper &rarr;</a>
                 </div>
             </div>
         </div>
@@ -1803,6 +1813,18 @@
                 slider.scrollTo({ left: (cards[0].offsetWidth + 18) * i, behavior: 'smooth' });
             }));
             slider.addEventListener('scroll', updateDots);
+
+            // Arrow buttons
+            const prevBtn = document.querySelector('.slider-prev');
+            const nextBtn = document.querySelector('.slider-next');
+            if (prevBtn) prevBtn.addEventListener('click', () => {
+                const cardW = cards[0].offsetWidth + 18;
+                slider.scrollBy({ left: -cardW, behavior: 'smooth' });
+            });
+            if (nextBtn) nextBtn.addEventListener('click', () => {
+                const cardW = cards[0].offsetWidth + 18;
+                slider.scrollBy({ left: cardW, behavior: 'smooth' });
+            });
         }
     });
     </script>
