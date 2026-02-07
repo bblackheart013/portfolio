@@ -153,6 +153,14 @@
             transform: translateX(100%); transition: transform 0.3s ease;
         }
         .mobile-nav.active { transform: translateX(0); }
+        .mobile-close-btn {
+            position: absolute; top: 20px; right: 20px;
+            width: 44px; height: 44px; border: none; background: none;
+            color: var(--text); font-size: 32px; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            z-index: 10;
+        }
+        .mobile-close-btn:hover { color: var(--accent); }
         .mobile-nav-links {
             display: flex; flex-direction: column;
             align-items: center; justify-content: center;
@@ -810,6 +818,7 @@
 
     <!-- Mobile Nav -->
     <div class="mobile-nav" id="mobileNav">
+        <button class="mobile-close-btn" id="mobileCloseBtn">&times;</button>
         <ul class="mobile-nav-links">
             <li><a href="#experience" data-mobile-link>Experience</a></li>
             <li><a href="#education" data-mobile-link>Education</a></li>
@@ -1704,6 +1713,11 @@
                     mBtn.classList.remove('active'); mNav.classList.remove('active');
                     document.body.style.overflow = '';
                 });
+            });
+            const mClose = document.getElementById('mobileCloseBtn');
+            if (mClose) mClose.addEventListener('click', () => {
+                mBtn.classList.remove('active'); mNav.classList.remove('active');
+                document.body.style.overflow = '';
             });
         }
 
