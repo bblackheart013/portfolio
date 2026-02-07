@@ -1,20 +1,31 @@
-# Mohd Sarfaraz Faiyaz - Portfolio
+# Mohd Sarfaraz Faiyaz — Portfolio
 
-Personal portfolio website showcasing my projects, research, and professional experience.
+Personal portfolio website showcasing my work as an entrepreneur, engineer, and researcher.
 
-🔗 Live Demo: https://bblackheart013.github.io/portfolio/
+**Live Demo: [mohdsarfarazfaiyaz.com](https://mohdsarfarazfaiyaz.com/)**
 
-## Technologies Used
-- HTML5
-- CSS3
-- JavaScript
-- GSAP for animations
+## About
 
-## Features
-- Responsive design
-- Interactive project showcase
-- Research publications section
-- Professional experience timeline
-- Contact information
+Co-Founder & COO at [GeneGenius](https://genegenius.ai) · MS Computer Engineering @ NYU · 11 Published Papers · 2 Startups Founded
 
+## Tech Stack
 
+- **Fonts** — Space Grotesk, Inter, JetBrains Mono (Google Fonts)
+- **Animations** — GSAP + ScrollTrigger
+- **Hosting** — GitHub Pages
+
+## Sections
+
+- Professional Experience (8 roles including GeneGenius, NYU labs, Cypher AI)
+- Education (NYU, Amity University)
+- Projects (8 featured — NeuroCardiac Shield, Lighthouse, VisionMate, and more)
+- Research Publications (11 papers across IEEE, Springer, Elsevier, Taylor & Francis)
+- Awards & Achievements
+- NYU Stern Endless Frontier Labs
+- Certifications & Credentials
+- Featured Posts (X + LinkedIn)
+- Contact & Social Links
+
+## License
+
+All rights reserved.
