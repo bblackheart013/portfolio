@@ -81,23 +81,7 @@
             z-index: 10001; pointer-events: none;
         }
 
-        /* === CURSOR === */
-        .cursor-dot {
-            width: 6px; height: 6px; background: var(--accent);
-            border-radius: 50%; position: fixed;
-            pointer-events: none; z-index: 9999;
-            transition: transform 0.15s ease;
-        }
-        .cursor-ring {
-            width: 34px; height: 34px;
-            border: 1.5px solid rgba(0,240,181,0.3);
-            border-radius: 50%; position: fixed;
-            pointer-events: none; z-index: 9998;
-            transition: width 0.2s, height 0.2s, border-color 0.2s;
-        }
-        .cursor-dot.hover { transform: scale(3); }
-        .cursor-ring.hover { width: 50px; height: 50px; border-color: var(--accent); }
-        @media (max-width: 768px) { .cursor-dot, .cursor-ring { display: none; } body { cursor: auto; } }
+        /* === CURSOR (disabled) === */
 
         /* === LOADER === */
         .loader {
@@ -792,8 +776,6 @@
     <div class="bg-orb bg-orb-1"></div>
     <div class="bg-orb bg-orb-2"></div>
     <div class="scroll-progress" id="scrollProgress"></div>
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-ring" id="cursorRing"></div>
 
     <!-- Loader -->
     <div class="loader" id="loader"><div class="loader-text">MSF</div></div>
@@ -911,10 +893,10 @@
                         <div class="exp-info">
                             <h3 class="exp-title">Digital Technology Analyst</h3>
                             <div class="exp-company"><a href="https://endlessfrontierlabs.com/" target="_blank" rel="noopener noreferrer">NYU Stern - Endless Frontier Labs</a></div>
-                            <div class="exp-meta">May 2025 - Present &middot; New York, USA</div>
+                            <div class="exp-meta">May 2025 - Dec 2025 &middot; New York, USA</div>
                         </div>
                     </div>
-                    <div class="exp-desc">Evaluating technology stacks and providing strategic guidance to AI/ML startups in NYU's elite accelerator program.</div>
+                    <div class="exp-desc">Evaluated technology stacks and provided strategic guidance to AI/ML startups in NYU's elite accelerator program.</div>
                     <div class="exp-highlight"><span class="exp-highlight-icon">📊</span><span class="exp-highlight-text">Screened 120+ startups using custom 15-point evaluation rubric</span></div>
                     <div class="exp-highlight"><span class="exp-highlight-icon">💰</span><span class="exp-highlight-text">Portfolio companies raised $18M+ in follow-on funding</span></div>
                     <div class="exp-tags"><span class="tag">Due Diligence</span><span class="tag">AI/ML</span><span class="tag">Strategy</span><span class="tag">VC</span></div>
@@ -1142,6 +1124,54 @@
                         <a href="https://github.com/bblackheart013/parkinson-device" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
                     </div>
                 </div>
+
+                <!-- NeuroCardiac Shield -->
+                <div class="project-card gs">
+                    <div class="project-bg" style="background: linear-gradient(135deg, #0a0e1a 0%, #080a14 100%);"></div>
+                    <div class="project-grad"></div>
+                    <div class="project-info">
+                        <span class="project-tag">NYU Tandon</span>
+                        <h3 class="project-name">NeuroCardiac Shield</h3>
+                        <p class="project-desc">Integrated Brain-Heart monitoring platform combining 8-channel EEG and 3-lead ECG with 76-feature ML ensemble for real-time cardiovascular-neurological risk assessment.</p>
+                        <div class="project-stats">
+                            <div><div class="project-stat-val">76</div><div class="project-stat-lbl">ML Features</div></div>
+                            <div><div class="project-stat-val">81.1%</div><div class="project-stat-lbl">XGBoost Acc.</div></div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/neurocardiac-shield" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- Lighthouse -->
+                <div class="project-card gs">
+                    <div class="project-bg" style="background: linear-gradient(135deg, #0a1418 0%, #080e12 100%);"></div>
+                    <div class="project-grad"></div>
+                    <div class="project-info">
+                        <span class="project-tag">NASA Space Apps 2025</span>
+                        <h3 class="project-name">Lighthouse</h3>
+                        <p class="project-desc">Real-time AI-powered air quality monitoring using NASA satellite data (TEMPO, TROPOMI, MODIS, VIIRS). ML-powered 7-day forecasts and personalized health alerts.</p>
+                        <div class="project-stats">
+                            <div><div class="project-stat-val">7+</div><div class="project-stat-lbl">NASA Sources</div></div>
+                            <div><div class="project-stat-val">&lt;2s</div><div class="project-stat-lbl">Response</div></div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/lighthouse" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                    </div>
+                </div>
+
+                <!-- VisionMate -->
+                <div class="project-card gs">
+                    <div class="project-bg" style="background: linear-gradient(135deg, #14100a 0%, #0e0a08 100%);"></div>
+                    <div class="project-grad"></div>
+                    <div class="project-info">
+                        <span class="project-tag">Qualcomm Hackathon</span>
+                        <h3 class="project-name">VisionMate</h3>
+                        <p class="project-desc">AI-powered assistive navigation for the visually impaired. Real-time object detection with priority-based guidance, Qualcomm NPU acceleration achieving 5.7x speedup and &lt;1ms latency.</p>
+                        <div class="project-stats">
+                            <div><div class="project-stat-val">99.2%</div><div class="project-stat-lbl">Accuracy</div></div>
+                            <div><div class="project-stat-val">5.7x</div><div class="project-stat-lbl">NPU Speedup</div></div>
+                        </div>
+                        <a href="https://github.com/bblackheart013/visionmate" class="project-link" target="_blank" rel="noopener noreferrer">View on GitHub &rarr;</a>
+                    </div>
+                </div>
             </div>
             <div class="project-nav">
                 <div class="project-dot active" data-project="0"></div>
@@ -1149,6 +1179,9 @@
                 <div class="project-dot" data-project="2"></div>
                 <div class="project-dot" data-project="3"></div>
                 <div class="project-dot" data-project="4"></div>
+                <div class="project-dot" data-project="5"></div>
+                <div class="project-dot" data-project="6"></div>
+                <div class="project-dot" data-project="7"></div>
             </div>
         </div>
     </section>
@@ -1470,7 +1503,7 @@
                 <div class="efl-grid">
                     <div>
                         <h3 class="efl-h">Shaping Tomorrow's Technology Leaders</h3>
-                        <p class="efl-p">As a Digital Technology Analyst at Endless Frontier Labs, I work with the most promising AI/ML, Blockchain, Quantum Computing startups, providing technical guidance and strategic insights to help them scale from idea to impact.</p>
+                        <p class="efl-p">As a Digital Technology Analyst at Endless Frontier Labs, I worked with the most promising AI/ML, Blockchain, Quantum Computing startups, providing technical guidance and strategic insights to help them scale from idea to impact.</p>
                         <div class="efl-highlights">
                             <div class="efl-hl"><span class="efl-hl-icon">🎯</span><span class="efl-hl-text">Screened 120+ AI/ML startups for the Digital Tech track</span></div>
                             <div class="efl-hl"><span class="efl-hl-icon">📈</span><span class="efl-hl-text">Portfolio companies raised $18M+ in follow-on funding</span></div>
@@ -1633,7 +1666,7 @@
         </div>
     </section>
 
-    <footer class="footer">&copy; 2025 Mohd Sarfaraz Faiyaz. All rights reserved.</footer>
+    <footer class="footer">&copy; 2026 Mohd Sarfaraz Faiyaz. All rights reserved.</footer>
 
     <!-- GSAP -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
@@ -1647,27 +1680,6 @@
                 document.getElementById('loader').classList.add('hidden');
                 initAnimations();
             }, 800);
-        });
-
-        // === CURSOR ===
-        const dot = document.getElementById('cursorDot');
-        const ring = document.getElementById('cursorRing');
-        let mx = 0, my = 0, dx = 0, dy = 0, rx = 0, ry = 0;
-
-        document.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; });
-
-        function animCursor() {
-            dx += (mx - dx) * 0.5; dy += (my - dy) * 0.5;
-            rx += (mx - rx) * 0.25; ry += (my - ry) * 0.25;
-            if (dot) { dot.style.left = dx - 3 + 'px'; dot.style.top = dy - 3 + 'px'; }
-            if (ring) { ring.style.left = rx - 17 + 'px'; ring.style.top = ry - 17 + 'px'; }
-            requestAnimationFrame(animCursor);
-        }
-        animCursor();
-
-        document.querySelectorAll('a, button, [data-magnetic]').forEach(el => {
-            el.addEventListener('mouseenter', () => { dot && dot.classList.add('hover'); ring && ring.classList.add('hover'); });
-            el.addEventListener('mouseleave', () => { dot && dot.classList.remove('hover'); ring && ring.classList.remove('hover'); });
         });
 
         // === SCROLL PROGRESS ===
