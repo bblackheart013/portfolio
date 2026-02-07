@@ -304,10 +304,11 @@
         }
         .exp-header { display: flex; gap: 14px; margin-bottom: 14px; }
         .exp-icon {
-            font-size: 24px; width: 44px; height: 44px;
+            font-size: 16px; width: 44px; height: 44px;
             display: flex; align-items: center; justify-content: center;
             background: var(--accent-dim); border: 1px solid var(--border);
             border-radius: 10px; flex-shrink: 0;
+            color: var(--accent); font-family: var(--font-m);
         }
         .exp-info { flex: 1; }
         .exp-title {
@@ -332,7 +333,7 @@
             background: rgba(255,255,255,0.015); border-radius: 6px;
             border-left: 2px solid var(--accent);
         }
-        .exp-highlight-icon { font-size: 14px; flex-shrink: 0; margin-top: 1px; }
+        .exp-highlight-icon { font-size: 12px; flex-shrink: 0; margin-top: 2px; color: var(--accent); }
         .exp-highlight-text { font-size: 12px; color: var(--text-secondary); line-height: 1.5; }
         .exp-tags { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 12px; }
         .tag {
@@ -387,7 +388,7 @@
             display: flex; align-items: flex-start; gap: 8px;
             margin: 6px 0; font-size: 12px; color: var(--text-secondary); line-height: 1.5;
         }
-        .edu-ach-icon { font-size: 13px; flex-shrink: 0; margin-top: 1px; }
+        .edu-ach-icon { font-size: 12px; flex-shrink: 0; margin-top: 2px; color: var(--accent); }
         .edu-gpa {
             display: inline-block; font-family: var(--font-m);
             font-size: 11px; font-weight: 600; color: var(--accent);
@@ -484,7 +485,7 @@
         }
         .award-card:hover { border-left-color: var(--accent); }
         .award-icon {
-            font-size: 28px; width: 48px; height: 48px;
+            font-size: 18px; width: 48px; height: 48px; color: var(--accent); font-family: var(--font-m);
             display: flex; align-items: center; justify-content: center;
             background: var(--accent-dim); border-radius: 10px;
             border: 1px solid var(--border); flex-shrink: 0;
@@ -504,7 +505,7 @@
         .award-stat {
             text-align: center; padding: 24px 14px;
         }
-        .award-stat-icon { font-size: 24px; margin-bottom: 8px; display: block; }
+        .award-stat-icon { font-size: 16px; margin-bottom: 8px; display: block; color: var(--accent); }
         .award-stat-val {
             font-family: var(--font-h); font-size: 28px; font-weight: 700;
             color: var(--accent); line-height: 1; margin-bottom: 4px;
@@ -577,7 +578,7 @@
             transition: all 0.2s;
         }
         .efl-hl:hover { transform: translateX(4px); border-color: var(--border-hover); }
-        .efl-hl-icon { font-size: 18px; }
+        .efl-hl-icon { font-size: 12px; color: var(--accent); }
         .efl-hl-text { font-size: 13px; color: var(--text-secondary); }
         .efl-stats {
             display: grid; grid-template-columns: repeat(2, 1fr);
@@ -648,7 +649,7 @@
             flex-shrink: 0; overflow: hidden;
         }
         .cert-icon img { width: 100%; height: 100%; object-fit: contain; padding: 4px; }
-        .cert-icon-fb { font-size: 20px; }
+        .cert-icon-fb { font-size: 16px; color: var(--accent); }
         .cert-icon-txt {
             font-family: var(--font-m); font-size: 11px; font-weight: 700; color: var(--text);
         }
@@ -674,7 +675,7 @@
             display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; margin-top: 36px;
         }
         .cert-stat { text-align: center; padding: 20px 12px; }
-        .cert-stat-icon { font-size: 22px; margin-bottom: 6px; display: block; }
+        .cert-stat-icon { font-size: 16px; margin-bottom: 6px; display: block; color: var(--accent); }
         .cert-stat-val {
             font-family: var(--font-h); font-size: 24px; font-weight: 700;
             color: var(--accent); margin-bottom: 4px;
@@ -703,7 +704,7 @@
             text-align: center;
         }
         .contact-item:hover { border-color: var(--accent-border); }
-        .contact-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+        .contact-icon { font-size: 20px; margin-bottom: 10px; display: block; color: var(--accent); }
         .contact-icon svg { width: 28px; height: 28px; fill: currentColor; }
         .contact-label {
             font-family: var(--font-m); font-size: 10px; font-weight: 600;
@@ -864,7 +865,7 @@
             <!-- GeneGenius - Featured -->
             <div class="card exp-featured gs">
                 <div class="exp-header">
-                    <div class="exp-icon">🧬</div>
+                    <div class="exp-icon">&#9670;</div>
                     <div class="exp-info">
                         <h3 class="exp-title">Co-Founder &amp; COO</h3>
                         <div class="exp-company"><a href="https://genegenius.ai" target="_blank" rel="noopener noreferrer">GeneGenius</a></div>
@@ -872,8 +873,8 @@
                     </div>
                 </div>
                 <div class="exp-desc">Building the interpretation layer between raw genomic data and sign-out-ready clinical decisions. Leading engineering execution and operations end-to-end — from system architecture and pipeline performance to product delivery and clinical workflow fit.</div>
-                <div class="exp-highlight"><span class="exp-highlight-icon">🚀</span><span class="exp-highlight-text">Shipped working prototype: ACMG-style evidence automation, 3D protein visualization, and async whole-genome-scale interpretation pipeline</span></div>
-                <div class="exp-highlight"><span class="exp-highlight-icon">🌍</span><span class="exp-highlight-text">Presented at Web Summit Lisbon 2025; invited to explore Qatar's national startup ecosystem via the Embassy of Qatar in D.C.</span></div>
+                <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Shipped working prototype: ACMG-style evidence automation, 3D protein visualization, and async whole-genome-scale interpretation pipeline</span></div>
+                <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Presented at Web Summit Lisbon 2025; invited to explore Qatar's national startup ecosystem via the Embassy of Qatar in D.C.</span></div>
                 <div class="exp-tags"><span class="tag">Genomics</span><span class="tag">AI/ML</span><span class="tag">Clinical Pipelines</span><span class="tag">Operations</span></div>
             </div>
 
@@ -881,23 +882,23 @@
                 <!-- NYU Stern EFL -->
                 <div class="card gs">
                     <div class="exp-header">
-                        <div class="exp-icon">💼</div>
+                        <div class="exp-icon">&#9670;</div>
                         <div class="exp-info">
                             <h3 class="exp-title">Digital Technology Analyst</h3>
                             <div class="exp-company"><a href="https://endlessfrontierlabs.com/" target="_blank" rel="noopener noreferrer">NYU Stern - Endless Frontier Labs</a></div>
-                            <div class="exp-meta">May 2025 - Dec 2025 &middot; New York, USA</div>
+                            <div class="exp-meta">May 2025 - Sep 2025 &middot; New York, USA</div>
                         </div>
                     </div>
                     <div class="exp-desc">Evaluated technology stacks and provided strategic guidance to AI/ML startups in NYU's elite accelerator program.</div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">📊</span><span class="exp-highlight-text">Screened 120+ startups using custom 15-point evaluation rubric</span></div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">💰</span><span class="exp-highlight-text">Portfolio companies raised $18M+ in follow-on funding</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Screened 120+ startups using custom 15-point evaluation rubric</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Portfolio companies raised $18M+ in follow-on funding</span></div>
                     <div class="exp-tags"><span class="tag">Due Diligence</span><span class="tag">AI/ML</span><span class="tag">Strategy</span><span class="tag">VC</span></div>
                 </div>
 
                 <!-- NYU Blockchain Lab -->
                 <div class="card gs">
                     <div class="exp-header">
-                        <div class="exp-icon">🔗</div>
+                        <div class="exp-icon">&#9670;</div>
                         <div class="exp-info">
                             <h3 class="exp-title">Blockchain Researcher</h3>
                             <div class="exp-company"><a href="https://blockchain.stern.nyu.edu/" target="_blank" rel="noopener noreferrer">NYU Blockchain Lab</a></div>
@@ -905,15 +906,15 @@
                         </div>
                     </div>
                     <div class="exp-desc">Conducting research on Zero-Knowledge Proofs (ZKP) for decentralized governance systems and DeFi protocols. Building privacy-preserving voting mechanisms and identity solutions.</div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">🔐</span><span class="exp-highlight-text">Developing ZKP-based governance for DeFi protocols</span></div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">🏛️</span><span class="exp-highlight-text">Implementing ERC-725 identity standards for digital democracy</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Developing ZKP-based governance for DeFi protocols</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Implementing ERC-725 identity standards for digital democracy</span></div>
                     <div class="exp-tags"><span class="tag">ZKP</span><span class="tag">Solidity</span><span class="tag">DeFi</span><span class="tag">Governance</span></div>
                 </div>
 
                 <!-- NYU SSL -->
                 <div class="card gs">
                     <div class="exp-header">
-                        <div class="exp-icon">🔬</div>
+                        <div class="exp-icon">&#9670;</div>
                         <div class="exp-info">
                             <h3 class="exp-title">Security Research Assistant</h3>
                             <div class="exp-company"><a href="https://ssl.engineering.nyu.edu/" target="_blank" rel="noopener noreferrer">NYU Secure Systems Lab</a></div>
@@ -921,15 +922,15 @@
                         </div>
                     </div>
                     <div class="exp-desc">Working on Lind3i - a WebAssembly sandbox for secure AI system deployment. Collaborating with Intel on kernel isolation research.</div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">🛡️</span><span class="exp-highlight-text">Developing secure sandboxing solutions for AI workloads</span></div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">🤝</span><span class="exp-highlight-text">Collaborating with Intel on kernel-level security research</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Developing secure sandboxing solutions for AI workloads</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Collaborating with Intel on kernel-level security research</span></div>
                     <div class="exp-tags"><span class="tag">WebAssembly</span><span class="tag">Security</span><span class="tag">Systems</span><span class="tag">AI</span></div>
                 </div>
 
                 <!-- Cypher AI -->
                 <div class="card gs">
                     <div class="exp-header">
-                        <div class="exp-icon">🚀</div>
+                        <div class="exp-icon">&#9670;</div>
                         <div class="exp-info">
                             <h3 class="exp-title">Founder &amp; CTO</h3>
                             <div class="exp-company">Cypher AI Technologies</div>
@@ -937,15 +938,15 @@
                         </div>
                     </div>
                     <div class="exp-desc">Founded and built an enterprise HRMS platform serving 50+ SMB clients. Led technical architecture and product development.</div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">📈</span><span class="exp-highlight-text">Achieved 99.9% uptime and 32% productivity improvements</span></div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">🏆</span><span class="exp-highlight-text">Built from 0 to 50+ enterprise clients in 2 years</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Achieved 99.9% uptime and 32% productivity improvements</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Built from 0 to 50+ enterprise clients in 2 years</span></div>
                     <div class="exp-tags"><span class="tag">Leadership</span><span class="tag">Full-Stack</span><span class="tag">B2B SaaS</span><span class="tag">Scale</span></div>
                 </div>
 
                 <!-- Lucknow Metro -->
                 <div class="card gs">
                     <div class="exp-header">
-                        <div class="exp-icon">🚇</div>
+                        <div class="exp-icon">&#9670;</div>
                         <div class="exp-info">
                             <h3 class="exp-title">Software Developer Intern</h3>
                             <div class="exp-company"><a href="https://www.lmrcl.com/" target="_blank" rel="noopener noreferrer">Lucknow Metro Rail Corporation</a></div>
@@ -953,15 +954,15 @@
                         </div>
                     </div>
                     <div class="exp-desc">Developed Leave Management System for UPMRC. Led a team of 5 engineers to deliver the project on time.</div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">👥</span><span class="exp-highlight-text">Led 5-member engineering team to successful delivery</span></div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">🎯</span><span class="exp-highlight-text">Delivered enterprise solution within tight deadline</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Led 5-member engineering team to successful delivery</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Delivered enterprise solution within tight deadline</span></div>
                     <div class="exp-tags"><span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">JavaScript</span><span class="tag">Team Lead</span></div>
                 </div>
 
                 <!-- Feynn Labs -->
                 <div class="card gs">
                     <div class="exp-header">
-                        <div class="exp-icon">🤖</div>
+                        <div class="exp-icon">&#9670;</div>
                         <div class="exp-info">
                             <h3 class="exp-title">Machine Learning Engineer</h3>
                             <div class="exp-company"><a href="https://www.feynn.com/" target="_blank" rel="noopener noreferrer">Feynn Labs</a></div>
@@ -969,8 +970,8 @@
                         </div>
                     </div>
                     <div class="exp-desc">Led a team to develop a Travel Recommendation System using collaborative filtering techniques.</div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">🔍</span><span class="exp-highlight-text">Built recommendation engine with 85% accuracy</span></div>
-                    <div class="exp-highlight"><span class="exp-highlight-icon">📊</span><span class="exp-highlight-text">Processed 100K+ travel data points for insights</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Built recommendation engine with 85% accuracy</span></div>
+                    <div class="exp-highlight"><span class="exp-highlight-icon">&#9656;</span><span class="exp-highlight-text">Processed 100K+ travel data points for insights</span></div>
                     <div class="exp-tags"><span class="tag">ML</span><span class="tag">Python</span><span class="tag">Team Lead</span><span class="tag">Analytics</span></div>
                 </div>
             </div>
@@ -1001,12 +1002,12 @@
                     </div>
                     <p class="edu-desc">Not your typical grad student — I'm here building what's next. Co-founded GeneGenius during my MS, went through NYU Stern's Endless Frontier Labs evaluating 120+ startups, took the Stern Digital Currency course to go deep on blockchain economics, and partnered with Intel through NYU SSL to pioneer kernel isolation for AI workloads. From FPGA hardware achieving 4000x speedup to ZKP governance systems — every semester has been a launchpad.</p>
                     <div class="edu-achievements">
-                        <div class="edu-ach-item"><span class="edu-ach-icon">🧬</span><span>Co-Founded GeneGenius: Building the interpretation layer for genomic data — presented at Web Summit Lisbon 2025</span></div>
-                        <div class="edu-ach-item"><span class="edu-ach-icon">💼</span><span>NYU Stern EFL: Digital Tech Analyst — screened 120+ AI/ML startups, portfolio raised $18M+ in follow-on funding</span></div>
-                        <div class="edu-ach-item"><span class="edu-ach-icon">🪙</span><span>NYU Stern Digital Currency: Studied blockchain economics, tokenomics, and decentralized finance protocols under Stern faculty</span></div>
-                        <div class="edu-ach-item"><span class="edu-ach-icon">🔬</span><span>NYU SSL: Partnering with Intel on WebAssembly sandboxing — securing AI infrastructure at the kernel level</span></div>
-                        <div class="edu-ach-item"><span class="edu-ach-icon">🏆</span><span>NYU Blockchain Lab: Building ZKP governance systems — making democracy private and verifiable</span></div>
-                        <div class="edu-ach-item"><span class="edu-ach-icon">⚡</span><span>AI Hardware Accelerator: Designed FPGA systems achieving 4000x speedup. Published in IEEE.</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>Co-Founded GeneGenius: Building the interpretation layer for genomic data — presented at Web Summit Lisbon 2025</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>NYU Stern EFL: Digital Tech Analyst — screened 120+ AI/ML startups, portfolio raised $18M+ in follow-on funding</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>NYU Stern Digital Currency: Studied blockchain economics, tokenomics, and decentralized finance protocols under Stern faculty</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>NYU SSL: Partnering with Intel on WebAssembly sandboxing — securing AI infrastructure at the kernel level</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>NYU Blockchain Lab: Building ZKP governance systems — making democracy private and verifiable</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>AI Hardware Accelerator: Designed FPGA systems achieving 4000x speedup. Published in IEEE.</span></div>
                     </div>
                 </div>
 
@@ -1026,10 +1027,10 @@
                     </div>
                     <p class="edu-desc">Graduated with distinction and multiple awards. Published 11 research papers in top-tier IEEE and Springer conferences. Founded a successful startup during undergraduate studies.</p>
                     <div class="edu-achievements">
-                        <div class="edu-ach-item"><span class="edu-ach-icon">🥇</span><span>University Gold Medal for Academic Excellence</span></div>
-                        <div class="edu-ach-item"><span class="edu-ach-icon">📚</span><span>10 Research Papers Published (22 Citations)</span></div>
-                        <div class="edu-ach-item"><span class="edu-ach-icon">🚀</span><span>Founded Cypher AI Technologies (50+ clients)</span></div>
-                        <div class="edu-ach-item"><span class="edu-ach-icon">🏅</span><span>Best Capstone Project Award</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>University Gold Medal for Academic Excellence</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>10 Research Papers Published (22 Citations)</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>Founded Cypher AI Technologies (50+ clients)</span></div>
+                        <div class="edu-ach-item"><span class="edu-ach-icon">&#9656;</span><span>Best Capstone Project Award</span></div>
                     </div>
                 </div>
             </div>
@@ -1305,7 +1306,7 @@
                     <h3 class="award-cat-title">Academic Excellence</h3>
                     <div class="awards-list">
                         <div class="card award-card">
-                            <div class="award-icon">🥇</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">Gold Medal - Academic Excellence</h4>
                                 <div class="award-org">Amity University Lucknow</div>
@@ -1314,7 +1315,7 @@
                             </div>
                         </div>
                         <div class="card award-card">
-                            <div class="award-icon">🏅</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">Best Researcher Award</h4>
                                 <div class="award-org">Amity University Lucknow</div>
@@ -1329,7 +1330,7 @@
                     <h3 class="award-cat-title">Innovation &amp; Technology</h3>
                     <div class="awards-list">
                         <div class="card award-card">
-                            <div class="award-icon">🏆</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">Best Capstone Project Award</h4>
                                 <div class="award-org">Amity University Lucknow</div>
@@ -1338,7 +1339,7 @@
                             </div>
                         </div>
                         <div class="card award-card">
-                            <div class="award-icon">🤖</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">AI Innovator of the Year</h4>
                                 <div class="award-org">Amity University Lucknow</div>
@@ -1347,7 +1348,7 @@
                             </div>
                         </div>
                         <div class="card award-card">
-                            <div class="award-icon">🔗</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">Blockchain Builder Award</h4>
                                 <div class="award-org">Amity University Lucknow</div>
@@ -1362,7 +1363,7 @@
                     <h3 class="award-cat-title">Leadership &amp; Entrepreneurship</h3>
                     <div class="awards-list">
                         <div class="card award-card">
-                            <div class="award-icon">⭐</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">Best Innovation Award</h4>
                                 <div class="award-org">Amity University Lucknow</div>
@@ -1371,7 +1372,7 @@
                             </div>
                         </div>
                         <div class="card award-card">
-                            <div class="award-icon">🎯</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">Outstanding Student Leader</h4>
                                 <div class="award-org">Amity University Lucknow</div>
@@ -1386,7 +1387,7 @@
                     <h3 class="award-cat-title">Research &amp; Publications</h3>
                     <div class="awards-list">
                         <div class="card award-card">
-                            <div class="award-icon">📄</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">Young Researcher Excellence</h4>
                                 <div class="award-org">IEEE &amp; Springer</div>
@@ -1395,7 +1396,7 @@
                             </div>
                         </div>
                         <div class="card award-card">
-                            <div class="award-icon">🔬</div>
+                            <div class="award-icon">&#9670;</div>
                             <div class="award-info">
                                 <h4 class="award-name">Best Student Researcher</h4>
                                 <div class="award-org">Computer Science Department</div>
@@ -1408,10 +1409,10 @@
             </div>
 
             <div class="award-stats-grid gs">
-                <div class="card award-stat"><span class="award-stat-icon">🏆</span><div class="award-stat-val" data-value="8">0</div><div class="award-stat-lbl">Major Awards</div></div>
-                <div class="card award-stat"><span class="award-stat-icon">🥇</span><div class="award-stat-val" data-value="1">0</div><div class="award-stat-lbl">Gold Medal</div></div>
-                <div class="card award-stat"><span class="award-stat-icon">🎓</span><div class="award-stat-val" data-value="5">0</div><div class="award-stat-lbl">Years of Excellence</div></div>
-                <div class="card award-stat"><span class="award-stat-icon">🌟</span><div class="award-stat-val" data-value="22">0</div><div class="award-stat-lbl">Total Citations</div></div>
+                <div class="card award-stat"><span class="award-stat-icon">&#9670;</span><div class="award-stat-val" data-value="8">0</div><div class="award-stat-lbl">Major Awards</div></div>
+                <div class="card award-stat"><span class="award-stat-icon">&#9670;</span><div class="award-stat-val" data-value="1">0</div><div class="award-stat-lbl">Gold Medal</div></div>
+                <div class="card award-stat"><span class="award-stat-icon">&#9670;</span><div class="award-stat-val" data-value="5">0</div><div class="award-stat-lbl">Years of Excellence</div></div>
+                <div class="card award-stat"><span class="award-stat-icon">&#9670;</span><div class="award-stat-val" data-value="22">0</div><div class="award-stat-lbl">Total Citations</div></div>
             </div>
         </div>
     </section>
@@ -1497,9 +1498,9 @@
                         <h3 class="efl-h">Shaping Tomorrow's Technology Leaders</h3>
                         <p class="efl-p">As a Digital Technology Analyst at Endless Frontier Labs, I worked with the most promising AI/ML, Blockchain, Quantum Computing startups, providing technical guidance and strategic insights to help them scale from idea to impact.</p>
                         <div class="efl-highlights">
-                            <div class="efl-hl"><span class="efl-hl-icon">🎯</span><span class="efl-hl-text">Screened 120+ AI/ML startups for the Digital Tech track</span></div>
-                            <div class="efl-hl"><span class="efl-hl-icon">📈</span><span class="efl-hl-text">Portfolio companies raised $18M+ in follow-on funding</span></div>
-                            <div class="efl-hl"><span class="efl-hl-icon">🤝</span><span class="efl-hl-text">30+ mentor-founder strategy sessions facilitated</span></div>
+                            <div class="efl-hl"><span class="efl-hl-icon">&#9656;</span><span class="efl-hl-text">Screened 120+ AI/ML startups for the Digital Tech track</span></div>
+                            <div class="efl-hl"><span class="efl-hl-icon">&#9656;</span><span class="efl-hl-text">Portfolio companies raised $18M+ in follow-on funding</span></div>
+                            <div class="efl-hl"><span class="efl-hl-icon">&#9656;</span><span class="efl-hl-text">30+ mentor-founder strategy sessions facilitated</span></div>
                         </div>
                     </div>
                     <div class="efl-stats">
@@ -1526,7 +1527,7 @@
                 <div class="cert-grid">
                     <div class="card cert-card">
                         <div class="cert-header">
-                            <div class="cert-icon"><img src="https://images.credly.com/images/4e3d6f9f-55d7-4ea7-b0e6-f4d4ff543e22/image.png" alt="Cisco" onerror="this.style.display='none'"><span class="cert-icon-fb">🌐</span></div>
+                            <div class="cert-icon"><img src="https://images.credly.com/images/4e3d6f9f-55d7-4ea7-b0e6-f4d4ff543e22/image.png" alt="Cisco" onerror="this.style.display='none'"><span class="cert-icon-fb">&#9670;</span></div>
                             <div class="cert-info"><h4 class="cert-name">CCNA: Introduction to Networks</h4><div class="cert-issuer">Cisco Networking Academy</div><div class="cert-date">January 2024</div></div>
                         </div>
                         <div class="cert-desc">Successfully completed Cisco's CCNA course covering networking fundamentals, IP addressing, protocols, data link layer support, Ethernet connectivity, switches, routers, and devices configuration.</div>
@@ -1534,7 +1535,7 @@
                     </div>
                     <div class="card cert-card">
                         <div class="cert-header">
-                            <div class="cert-icon"><span class="cert-icon-fb">🔐</span></div>
+                            <div class="cert-icon"><span class="cert-icon-fb">&#9670;</span></div>
                             <div class="cert-info"><h4 class="cert-name">Embedded Security CTF</h4><div class="cert-issuer">Klefki DSCI</div><div class="cert-date">October 2022</div></div>
                         </div>
                         <div class="cert-desc">Achieved 14556th position in the Embedded Security Capture The Flag competition organized by Data Security Council of India.</div>
@@ -1542,7 +1543,7 @@
                     </div>
                     <div class="card cert-card">
                         <div class="cert-header">
-                            <div class="cert-icon"><span class="cert-icon-fb">🎩</span></div>
+                            <div class="cert-icon"><span class="cert-icon-fb">&#9670;</span></div>
                             <div class="cert-info"><h4 class="cert-name">Be A White Hat Hacker and Pen Tester</h4><div class="cert-issuer">Eduonix Learning Solutions</div><div class="cert-date">July 2021</div></div>
                         </div>
                         <div class="cert-desc">Completed comprehensive training in ethical hacking, penetration testing methodologies, and cybersecurity best practices.</div>
@@ -1550,7 +1551,7 @@
                     </div>
                     <div class="card cert-card">
                         <div class="cert-header">
-                            <div class="cert-icon"><span class="cert-icon-fb">🌍</span></div>
+                            <div class="cert-icon"><span class="cert-icon-fb">&#9670;</span></div>
                             <div class="cert-info"><h4 class="cert-name">Field Data Collection &amp; Contact Follow-up</h4><div class="cert-issuer">World Health Organization</div><div class="cert-date">June 2020</div></div>
                         </div>
                         <div class="cert-desc">Certified in WHO's field data collection methodologies, chains of transmission analysis, and contact tracing protocols.</div>
@@ -1588,7 +1589,7 @@
                 <div class="cert-grid">
                     <div class="card cert-card wide">
                         <div class="cert-header">
-                            <div class="cert-icon" style="background: var(--accent-dim);"><span class="cert-icon-fb">❤️</span></div>
+                            <div class="cert-icon" style="background: var(--accent-dim);"><span class="cert-icon-fb">&#9670;</span></div>
                             <div class="cert-info"><h4 class="cert-name">Community Development Volunteer</h4><div class="cert-issuer">Rakhtaab Foundation</div><div class="cert-date">February 2023 - February 2024</div></div>
                         </div>
                         <div class="cert-desc">A year of transformative community service working with underprivileged children. Led educational initiatives, created learning resources, and built strong community partnerships. Facilitated tutoring sessions and extracurricular activities that empowered children to believe in themselves and dream big.</div>
@@ -1598,10 +1599,10 @@
             </div>
 
             <div class="cert-stats-grid gs">
-                <div class="card cert-stat"><span class="cert-stat-icon">📜</span><div class="cert-stat-val" data-value="7">0</div><div class="cert-stat-lbl">Certifications</div></div>
-                <div class="card cert-stat"><span class="cert-stat-icon">🏢</span><div class="cert-stat-val" data-value="6">0</div><div class="cert-stat-lbl">Organizations</div></div>
-                <div class="card cert-stat"><span class="cert-stat-icon">📅</span><div class="cert-stat-val" data-value="4">0</div><div class="cert-stat-lbl">Years of Learning</div></div>
-                <div class="card cert-stat"><span class="cert-stat-icon">✅</span><div class="cert-stat-val" data-value="100">0</div><div class="cert-stat-lbl">% Verified</div></div>
+                <div class="card cert-stat"><span class="cert-stat-icon">&#9670;</span><div class="cert-stat-val" data-value="7">0</div><div class="cert-stat-lbl">Certifications</div></div>
+                <div class="card cert-stat"><span class="cert-stat-icon">&#9670;</span><div class="cert-stat-val" data-value="6">0</div><div class="cert-stat-lbl">Organizations</div></div>
+                <div class="card cert-stat"><span class="cert-stat-icon">&#9670;</span><div class="cert-stat-val" data-value="4">0</div><div class="cert-stat-lbl">Years of Learning</div></div>
+                <div class="card cert-stat"><span class="cert-stat-icon">&#9670;</span><div class="cert-stat-val" data-value="100">0</div><div class="cert-stat-lbl">% Verified</div></div>
             </div>
         </div>
     </section>
@@ -1614,12 +1615,12 @@
 
             <div class="contact-grid gs">
                 <a href="mailto:mohdsarfaraz@genegenius.ai" class="card contact-item" target="_blank" rel="noopener noreferrer">
-                    <span class="contact-icon">🧬</span>
+                    <span class="contact-icon">&#9670;</span>
                     <div class="contact-label">Work Email</div>
                     <div class="contact-val">mohdsarfaraz@genegenius.ai</div>
                 </a>
                 <a href="mailto:mohdsarfaraz1306@gmail.com" class="card contact-item" target="_blank" rel="noopener noreferrer">
-                    <span class="contact-icon">📧</span>
+                    <span class="contact-icon">&#9670;</span>
                     <div class="contact-label">Personal Email</div>
                     <div class="contact-val">mohdsarfaraz1306@gmail.com</div>
                 </a>
@@ -1634,12 +1635,12 @@
                     <div class="contact-val">bblackheart013</div>
                 </a>
                 <a href="https://x.com/mohdsarfaraz013" class="card contact-item" target="_blank" rel="noopener noreferrer">
-                    <span class="contact-icon">&#120143;</span>
+                    <span class="contact-icon">&#9670;</span>
                     <div class="contact-label">X (Twitter)</div>
                     <div class="contact-val">@mohdsarfaraz013</div>
                 </a>
                 <div class="card contact-item">
-                    <span class="contact-icon">📍</span>
+                    <span class="contact-icon">&#9670;</span>
                     <div class="contact-label">Location</div>
                     <div class="contact-val">New York, USA</div>
                 </div>
